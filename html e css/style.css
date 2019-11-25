@@ -1,0 +1,38 @@
+#cadeira {
+	width: 100%
+}
+.principal {
+	background: #cccccc;
+	text-align: center;
+	padding: 30px;
+}
+.tituloPrincipal{
+	text-align: center;
+}
+#missao {
+	font-size: 20px	
+}
+strong em {
+	color: red
+}
+.beneficios {
+	background: #FFFFFF;
+	padding: 20px;
+}
+.tituloCentralizado{
+	text-align: center;
+}
+.itens {
+	font-style: italic;
+}
+#beneficios {
+	width: 100%
+}
+ul {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 15%;
+}
+.imagemBeneficios {
+	width: 50%
+}

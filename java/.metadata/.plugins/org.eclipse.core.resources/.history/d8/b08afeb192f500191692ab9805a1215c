@@ -1,0 +1,31 @@
+
+public class ControleBonificacao {
+
+	private double soma;
+	private int senha;
+	
+	public void registra(Funcionario f) {
+		double boni = f.getBonificacao();
+		this.soma = this.soma + boni;
+}
+
+	public void setSenha(int senha, Funcionario f) {
+		if ()
+		this.senha = senha;
+	}
+
+
+
+	public boolean autentica(int senha) {
+		if (this.senha == senha) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+		
+	public double getSoma() {
+		return soma;
+}
+
+}

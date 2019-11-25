@@ -1,0 +1,11 @@
+
+public class TestaReferencias {
+	public static void main(String[] args) {
+		
+		g1.setNomes("Marcos");
+		String nome = g1.getNome();
+		
+		System.out.println(nome);
+	}
+
+}

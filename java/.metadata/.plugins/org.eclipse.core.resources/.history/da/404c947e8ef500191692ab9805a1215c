@@ -1,0 +1,35 @@
+
+public class ControleBonificacao {
+
+	private double soma;
+	
+	public void registra(Gerente g) {
+		System.out.println("Método do gerente: ");
+		double boni = g.getBonificacao();
+		this.soma = this.soma + boni;
+		
+		
+	}
+	
+	public void registra(Funcionario f) {
+		System.out.println("Método do funcionário: ");
+		double boni = f.getBonificacao();
+		this.soma = this.soma + boni;
+		
+		
+	}
+
+
+	public void registra(EditorVideo e) {
+		System.out.println("Método do EditorVideo: ");
+		double boni = e.getBonificacao();
+		this.soma = this.soma + boni;
+		
+		
+	}
+	
+	public double getSoma() {
+		return soma;
+	}
+
+}
