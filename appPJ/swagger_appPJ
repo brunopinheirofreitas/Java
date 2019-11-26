@@ -1,0 +1,224 @@
+swagger: "2.0"
+info:
+  description: "API SIACG para o AppPJ"
+  version: "1.0.0"
+  title: "API AppPJ"
+  contact:
+    email: "gitecgo05@mail.caixa"
+host: "siacg.caixa"
+basePath: "/consulta/v1"
+tags:
+- name: "consultaOperacao"
+  description: "Consulta operacoes de credito da Caixa"
+  externalDocs:
+    description: "Normativos"
+    url: "http://sismn.caixa"
+- name: "consultaGarantia"
+  description: "Consulta garantia do cliente no SIACG"
+- name: "preAnalise"
+  description: "Analisa a saude da operacao de credito pretendida"
+  externalDocs:
+    description: "Manual do Usuario do SIACG"
+    url: "http://siacg.caixa"
+schemes:
+- "https"
+- "http"
+paths:
+  /consultaOperacao:
+    get:
+      tags:
+      - "consultaOperacao"
+      summary: "Consulta operacoes no SIICO"
+      operationId: "consultaOperacao"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Standard response for successful HTTP requests"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Pet"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+  /consultaGarantia:
+    get:
+      tags:
+      - "consultaGarantia"
+      summary: "Consulta garantias que o cliente já possui com a Caixa."
+      description: "Lista as garantias que o cliente possui, apresentando os saldos."
+      operationId: "consultaGarantia"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "identificadorCliente"
+        in: "path"
+        description: "Informe o CPF/CNPJ do cliente com 14 posicoes"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Standard response for successful HTTP requests"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Pet"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+  /preAnalise:
+    post:
+      tags:
+      - "preAnalise"
+      summary: "Analisa a saude da operacao de credito pretendida."
+      description: "O SIACG avalia se as garantias que o cliente já possui na Caixa são suficientes para cobrir uma nova contratação."
+      operationId: "preAnalise"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+        - in: body
+          name: body
+          description: Objeto enviado ao SIACG para Pre-Analise
+          required: true
+          schema:
+            $ref: '#/definitions/Pet'
+      responses:
+        200:
+          description: "Standard response for successful HTTP requests"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Pet"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+definitions:
+  Order:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      petId:
+        type: "integer"
+        format: "int64"
+      quantity:
+        type: "integer"
+        format: "int32"
+      shipDate:
+        type: "string"
+        format: "date-time"
+      status:
+        type: "string"
+        description: "Order Status"
+        enum:
+        - "placed"
+        - "approved"
+        - "delivered"
+      complete:
+        type: "boolean"
+        default: false
+    xml:
+      name: "Order"
+  Category:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "Category"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      phone:
+        type: "string"
+      userStatus:
+        type: "integer"
+        format: "int32"
+        description: "User Status"
+    xml:
+      name: "User"
+  Tag:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "Tag"
+  Pet:
+    type: "object"
+    required:
+    - "name"
+    - "photoUrls"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      category:
+        $ref: "#/definitions/Category"
+      name:
+        type: "string"
+        example: "doggie"
+      photoUrls:
+        type: "array"
+        xml:
+          name: "photoUrl"
+          wrapped: true
+        items:
+          type: "string"
+      tags:
+        type: "array"
+        xml:
+          name: "tag"
+          wrapped: true
+        items:
+          $ref: "#/definitions/Tag"
+      status:
+        type: "string"
+        description: "pet status in the store"
+        enum:
+        - "available"
+        - "pending"
+        - "sold"
+    xml:
+      name: "Pet"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
