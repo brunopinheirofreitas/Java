@@ -3,7 +3,7 @@ public class Funcionario {
 	
 	private String nome;
 	private String cpf;
-	private double salario;
+	private double salario; //protected é public para a classe filho e private para as demais classes
 	private int tipo=0; //0 - Funcionario comum, 1 - Gerente, 2 - Diretor.
 	
 	public double getBonificacao () {
