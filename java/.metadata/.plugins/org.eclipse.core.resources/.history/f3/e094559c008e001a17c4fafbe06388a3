@@ -1,0 +1,10 @@
+
+public class testaConta {
+
+	public static void main(String[] args) {
+		ContaPoupanca conta1 = new ContaPoupanca(4613, 001); 
+		System.out.println(conta1.getNumero());
+
+	}
+
+}
