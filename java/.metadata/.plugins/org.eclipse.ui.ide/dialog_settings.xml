@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="E:\Programacao\Practice\java"/>
 		<item value="E:\Programacao\java\Curso-Java-parte-2-Introdu-o-Orienta-o-a-Objetos-capitulo5"/>
 	</list>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
