@@ -1,15 +1,14 @@
 
-public class Funcionario {
+public abstract class Funcionario {
 	
 	private String nome;
 	private String cpf;
 	private double salario; //protected é public para a classe filho e private para as demais classes
 	private int tipo=0; //0 - Funcionario comum, 1 - Gerente, 2 - Diretor.
 	
-	public double getBonificacao () {
-		System.out.println("Método do Funcionário");
-			return this.salario * 0.1;
-		} 
+	
+	  public abstract double getBonificacao (); //Um método abstrato a só pode existir em uma classe abstrata
+	 
 	
 	public int getTipo() {
 		return tipo;

@@ -11,7 +11,7 @@ public class TestaReferencias {
 		//System.out.println(g1.getTipo());
 		g1.setTipo(1);
 		
-		Funcionario f1 = new Funcionario();
+		Funcionario f1 = new Gerente();
 		f1.setNome("Jose");
 		f1.setSalario(2000.0);
 		f1.setTipo(0);
