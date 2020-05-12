@@ -11,6 +11,10 @@ public class CreateEmployee {
 		newEmployee.getName();
 		newEmployee1.setPosition(0);
 		newEmployee1.getPosition();
+		Position newEmployee2 = new Position();
+		newEmployee2.setName("Jonatas Ribeiro Marcelo");
+		newEmployee2.getName();
+		newEmployee2.setPosition(5);
 
 	}
 

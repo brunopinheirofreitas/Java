@@ -17,6 +17,7 @@ public abstract class Employee {
 	protected int designated_branch; 
 	protected int position;
 	protected int age;
+	protected int quantidade_funcionario;
 
 
 	protected String getName() {
@@ -68,6 +69,10 @@ public abstract class Employee {
 	protected abstract int getAge();
 
 	protected abstract void setAge(int age);
+	
+	protected abstract void setQuantidade_Funcionario(int quantidade_funcionario);
+	
+	protected abstract int getQuantidade_Funcionario();
 
 }
 

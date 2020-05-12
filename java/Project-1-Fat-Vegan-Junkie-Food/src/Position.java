@@ -139,6 +139,9 @@ public class Position extends Employee {
 				System.out.println("Manager");
 				break;
 		}
+		if (this.position > 4) {
+			System.out.println("Não existe essa posicao, favor escolher uma de 1 a 4");
+		}
 
 	}
 
@@ -152,6 +155,11 @@ public class Position extends Employee {
 	protected void setAge(int age) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@Override
+	protected void setQuantidade_Funcionario(int quantidade_funcionario) {
+		
 	}
 
 }
