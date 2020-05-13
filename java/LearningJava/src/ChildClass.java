@@ -1,8 +1,9 @@
 
 public class ChildClass extends MotherClass {
 
-	String major; //A child class can have different attributes.
-	float weight;
+	private String major; //A child class can have different attributes.
+	private float weight;
+
 
 	public String getMajor() {
 		return major;

@@ -12,6 +12,20 @@ public class MotherClass {
 	float weight;
 	char gender; //m - masculine, f - feminie
 	boolean employed;
+	static int total;
+	
+	//Constructors: Eclipse set a default constructor, but we can define one. Constructors are important to specify certain types of variables within the class instance.
+	
+	public MotherClass (String name, int age) {
+		this.name = name;
+		this.age = age;
+		MotherClass.total++;
+	}
+	
+	public MotherClass() {
+		MotherClass.total++;
+		
+	}
 	
 
 	// An attribute can be:
@@ -58,5 +72,8 @@ public class MotherClass {
 	public void setEmployed(boolean employed) {
 		this.employed = employed;
 	} 
+	public int getTotal() {
+		return total;
+	}
 
 }
