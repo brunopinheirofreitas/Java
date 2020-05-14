@@ -63,7 +63,10 @@ public class TestJavaExecution {
 		}
 
 
-		//MotherClass testPolimorphism = new ChildClass(); //testPolimorphism has all attributes and methods from both classes.
+		MotherClass testPolimorphism = new ChildClass(); //testPolimorphism is type MotherClass, however the instance is in ChildClass. Polimorphism you always set an object as a more generic type.
+		
+		testPolimorphism.setAge(65);
+		System.out.println("I don't uderstand polimorphism yet: " + testPolimorphism.age);
 
 
 	}

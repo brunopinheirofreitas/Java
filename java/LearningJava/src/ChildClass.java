@@ -1,5 +1,8 @@
 
 public class ChildClass extends MotherClass {
+	
+//	A class can only extends another one, hence, there is no multiple inheritance in Java. 
+//	You must know how to desgin classes...it's the most important thing to a clear e great code.
 
 	private String major; //A child class can have different attributes.
 	private float weight;

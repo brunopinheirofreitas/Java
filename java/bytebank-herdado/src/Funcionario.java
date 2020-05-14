@@ -7,8 +7,9 @@ public abstract class Funcionario {
 	private int tipo=0; //0 - Funcionario comum, 1 - Gerente, 2 - Diretor.
 	
 	
-	  public abstract double getBonificacao (); //Um método abstrato a só pode existir em uma classe abstrata
-	 
+	  public double getBonificacao () {//Um método abstrato a só pode existir em uma classe abstrata, se o método for abstrado o classe filha é obrigada a implementá-lo.
+		  return 50; 
+	  }
 	
 	public int getTipo() {
 		return tipo;
