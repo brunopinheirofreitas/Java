@@ -17,6 +17,9 @@ The JVM communicate with the computer through machine language, so the program i
 ```
 6. Classe's name: *ClassName*
 7. Variable's name: *variableNameUsedFor*
+8. Instead of importing a class, you could just use the fullname of the method that you are intending to use, ex: java.util.Scanner instead of Scanner, when you have imported the class into the code. 
+9. Local variables aren't initialized by default, however instance's variables are indeed initialized by default. 
+10. If you declare a default constructor in a class, the default constructor that a class have by default is overrided by the constructor created.
 ---
 
 **Java Types and operators**
@@ -25,8 +28,8 @@ Primitives
 |Type or Operator|Info|
 |----|----|
 |*int*|Integer Value|
-|*float*|Decimal Values|
-|*double*|Decimal Values|
+|*float*|Decimal Values - 7 digits|
+|*double*|Decimal Values - 15 digits|
 |*char*|Characteres|
 |*%* or *mod*|Return the decimal part in a division|
 |==|Equal|
@@ -83,10 +86,16 @@ Presents the output under a specific format acording to % specification in the f
 %n: jumps a line.
 %d: decimal integer, fix a position in a string ahead. 
 %f: for float.
+%.2f: A float with 2 digits
 %c: for char.
+
 ```
 ---
 
 **Programming good practice**
 1. Always choose a variable name according to its usability. 
 2. Comments! Always!
+3. Class name begin with uppercase, variables and methods names begin with lowcase. 
+4. inJavaTheFirstLetterOfTheNextWordBeginWithUpperCase
+5. this. is a good practice because it refers to the instance variable instead of the local variable inside the method.
+6. 
