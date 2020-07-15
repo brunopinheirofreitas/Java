@@ -28,6 +28,24 @@ public class AccountTest {
 		//Presenting balance
 		System.out.printf("The current balance is: %.2f%n", myAccount.getBalance());
 		
+		System.out.print("Please insert a value to withdraw: ");
+		double withdrawAmount = input.nextDouble(); //reading keyboard
+		
+		
+		myAccount.withdraw(withdrawAmount, myAccount.getName());
+		
+		System.out.println("The value withdrawned is: " + withdrawAmount);
+		
+		System.out.println("The current balance is: " + myAccount.getBalance());	
+		
+		System.out.println("Testing static method: "); 
+		displayAccount(myAccount);
+
+	}
+	//A method static can be invoked by another method static
+	public static void displayAccount(Account accountToDisplay) {
+		System.out.println(accountToDisplay.getName()); 
+		System.out.println(accountToDisplay.getBalance());
 
 	}
 

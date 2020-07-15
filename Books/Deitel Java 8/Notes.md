@@ -20,6 +20,7 @@ The JVM communicate with the computer through machine language, so the program i
 8. Instead of importing a class, you could just use the fullname of the method that you are intending to use, ex: java.util.Scanner instead of Scanner, when you have imported the class into the code. 
 9. Local variables aren't initialized by default, however instance's variables are indeed initialized by default. 
 10. If you declare a default constructor in a class, the default constructor that a class have by default is overrided by the constructor created.
+11. A static method can be invoked by another static method, because a static method can be invoked without a class intantiation.
 ---
 
 **Java Types and operators**

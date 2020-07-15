@@ -1,4 +1,4 @@
-
+//Class altered by cap03
 public class Account {
 	
 	private String name; // Instance variable 
@@ -37,7 +37,19 @@ public class Account {
 	public double getBalance() {
 		return balance;
 	}
-		
 	
+	//Method that withdraw values from the account
+	public double withdraw (double withdrawAmount, String accountName) {
+		if (accountName != this.name) {
+			System.out.println("This account doesn't exist");
+			return 0;
+		} 
+		if (withdrawAmount > this.balance){
+			System.out.printf("The account %s does not have suficient balance for this operation.%n", accountName);
+			return 0;		
+		}
+		balance = this.balance - withdrawAmount;
+		return withdrawAmount;		
+	}
 
 } // end of class
