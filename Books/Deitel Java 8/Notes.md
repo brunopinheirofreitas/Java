@@ -99,4 +99,57 @@ Presents the output under a specific format acording to % specification in the f
 3. Class name begin with uppercase, variables and methods names begin with lowcase. 
 4. inJavaTheFirstLetterOfTheNextWordBeginWithUpperCase
 5. this. is a good practice because it refers to the instance variable instead of the local variable inside the method.
-6. 
+
+
+**Control Instruction**
+
+- Three types: 
+  - Sequency
+  - Selection
+    - if, if-else, switch, else if
+  - Repetition
+    - for, while, do-while
+
+*if*
+```
+if (condition){
+   statement;
+}
+```` 
+
+*if-else*
+```
+if (condition){
+   statement;
+} else {
+   statement;
+}
+``` 
+*else if*
+```
+if (condition){
+   statement;
+} else if (condition) {
+   statement;
+} else if (condition) {
+   statement;
+} else {
+   statement;
+}
+```
+
+*?:*
+```
+(booleanExpression ? statement if true : statement if false)
+Example:
+println(StudentGrade>=60 ? "Passed" : "Failed");
+```
+
+*while*
+```
+while (condition) {
+   statement;
+}
+```
+
+
