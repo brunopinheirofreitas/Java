@@ -21,6 +21,7 @@ The JVM communicate with the computer through machine language, so the program i
 9. Local variables aren't initialized by default, however instance's variables are indeed initialized by default. 
 10. If you declare a default constructor in a class, the default constructor that a class have by default is overrided by the constructor created.
 11. A static method can be invoked by another static method, because a static method can be invoked without a class intantiation.
+12. Double type is preferible than float due to its precision.
 ---
 
 **Java Types and operators**
@@ -39,6 +40,17 @@ Primitives
 | < | Lesser than |
 | >=| Greater than or equal to|
 | <=| Lesser than or equal to|
+| +=| Add a value |
+| -=| Subtract a value |
+| *=| Multiply a value |
+| /=| Divide a value |
+| %=| Set the remainder of a division to a variable  |
+| ++a| Add 1 to a |
+| a++| Use a, then increment 1|
+| --b| Subtract 1 from b |
+| b--| Use b, then decrease 1|
+| ?:| Conditional, see statement below|
+
 
 ---
 
