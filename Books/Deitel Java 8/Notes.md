@@ -111,6 +111,8 @@ Presents the output under a specific format acording to % specification in the f
 3. Class name begin with uppercase, variables and methods names begin with lowcase. 
 4. inJavaTheFirstLetterOfTheNextWordBeginWithUpperCase
 5. this. is a good practice because it refers to the instance variable instead of the local variable inside the method.
+6. In a control instruction do not use a local variable. Ex: Do not use this.variable.
+7. Normally control instructions are better in the main class.
 
 
 **Control Instruction**
