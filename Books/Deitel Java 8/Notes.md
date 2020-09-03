@@ -15,13 +15,17 @@ The JVM communicate with the computer through machine language, so the program i
 ```
 /**  Comment */
 ```
-6. Classe's name: *ClassName*
-7. Variable's name: *variableNameUsedFor*
-8. Instead of importing a class, you could just use the fullname of the method that you are intending to use, ex: java.util.Scanner instead of Scanner, when you have imported the class into the code. 
-9. Local variables aren't initialized by default, however instance's variables are indeed initialized by default. 
-10. If you declare a default constructor in a class, the default constructor that a class have by default is overrided by the constructor created.
-11. A static method can be invoked by another static method, because a static method can be invoked without a class intantiation.
-12. Double type is preferible than float due to its precision.
+7. Classe's name: *ClassName*
+8. Variable's name: *variableNameUsedFor*
+9. Instead of importing a class, you could just use the fullname of the method that you are intending to use, ex: java.util.Scanner instead of Scanner, when you have imported the class into the code. 
+10. Local variables aren't initialized by default, however instance's variables are indeed initialized by default. 
+11. If you declare a default constructor in a class, the default constructor that a class have by default is overrided by the constructor created.
+12. A static method can be invoked by another static method, because a static method can be invoked without a class intantiation.
+13. Double type is preferible than float due to its precision.
+14. Break; if you want to break free of a interation.
+15. Continue; basically does nothing, just avoid a certain condition.
+16. A static method is a method that you can invoke through class_name.method. Hence, you don't have to creat an object of this class. 
+17. You can create a static attribute, which means the attribute is common for all objects of the class. (IT's called Class variable, the set of static variables in a class is called 'field').
 ---
 
 **Java Types and operators**
@@ -50,6 +54,13 @@ Primitives
 | --b| Subtract 1 from b |
 | b--| Use b, then decrease 1|
 | ?:| Conditional, see statement below|
+| &&| Conditional AND |
+| II| Conditional OR |
+|  &| Conditional AND that evaluate both conditions|
+|  I| Conditional OR that evaluate both conditions|
+|  ^| Conditional OR EXCLUSIVE| 
+|  !| Conditional NOT|
+
 
 
 ---
@@ -165,5 +176,31 @@ while (condition) {
    statement;
 }
 ```
+**For**
+```
+for (initialization; condition; increment) {
+   statement;
+}
+```
 
+**Do---While**
+```
+do {
+   statement;
+} while (condition);
+```
+
+**Case**
+```
+switch(condition) {
+   case condition match:
+      statement;
+      break; 
+   case condition match: case condition match: case condition match: 
+      statement;
+      break;
+   default:
+      statement;
+      break;
+}
 
