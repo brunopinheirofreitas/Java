@@ -26,15 +26,16 @@ The JVM communicate with the computer through machine language, so the program i
 15. Continue; basically does nothing, just avoid a certain condition.
 16. A static method is a method that you can invoke through class_name.method. Hence, you don't have to creat an object of this class. It's different from using a variable, that you have instanciated from a class, and then usin '.' and the name of the method. Thus, you have 03 forms of inoking a method:
     1. In the same class, just invoking the name of the method.
-    2. Through a variable that you have used to instanciate a class.
+    2. Through a variable that you have used to instantiate a class.
     3. Or using the name of the class.method, for static methods.
-17. You can create a static attribute, which means the attribute is common for all objects of the class. (IT's called Class variable, the set of static variables in a class is called 'field').
+17. You can create a static attribute, which means the attribute is common for all objects of the class. (It's called Class variable, the set of static variables in a class is called 'field').
 18. Pacotes de Java API são as bibliotecas Java.
 19. 'FINAL' means that you have a variable that cannot be changed after initialization. 
 20. array_name.lenght returns the lenght of the array.
 21. Arrays are an object.
 22. Try and Catch are used to treat exceptions. Any excepctions caught in an execution inside a 'try' will occasionate an execution of the block 'catch'. Any variable described in the block 'try' only exists in this block. 
 23. JAVA doesn't have multidimensional arrays, every line in a multidimensional array is seen as a unidimensional array.
+24. Array class has a sort of methods to manipulate arrays.
 ---
 
 **Java Types and operators**
@@ -78,9 +79,24 @@ Primitives
 
 **Java Identation**
 
-1. *import* - Always before class name.
-2. *java.lang* it's always imported in every class. 
+1. *package* - Always before *import*.
+2. *import* - Always before class name.
 
+---
+
+**Important classes to import**
+ 
+import java.math.BigDecimal;
+- To work with monetary values.
+
+import java.util.Scanner;
+- To read values from keyboard.
+
+import java.lang
+- By default it's already imported in every java class.
+
+import java.util.*
+- Import every class from a package.
 ---
 
 **Console Commands**:
@@ -146,12 +162,17 @@ Presents the output under a specific format acording to % specification in the f
 ```
 13. NullPointerException occour when you invoke a method with a null reference.
 
-
-
-
-
 **Control Instruction and other objects**
 
+*Declaration*
+
+- private: only accesible by class, the opposite is public. **See more in Encapsulation**
+- final: after initialization cannot be changed.
+- static: assume the same value for all objects of the class.
+
+```
+private final static name_variable = initialization_value;
+```
 *Exceptions*
 try {
 
@@ -182,6 +203,13 @@ int[][] name = {{value1, value2}, {value3, value4}};
 
 array.lenght -> returns the lenght of the line.
 array[line].length -> returns the lenght of the columns.
+```
+
+*Unknown lenght of a argument in a method*
+- You can pass in an argument of a method an array with a unknown lenght. You only have to specify the type.
+
+```
+Method(type... name)
 ```
 
 - Three types: 

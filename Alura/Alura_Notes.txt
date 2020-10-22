@@ -1,0 +1,11 @@
+###ALura Notes###
+
+##Variable Manipulation##
+
+**Casting**
+To use when you want to convert numbers, usually *double* to *int*.
+
+```
+double salario = 1270.50;
+        int valor = (int) salario;
+```
