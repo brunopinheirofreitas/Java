@@ -161,6 +161,8 @@ Presents the output under a specific format acording to % specification in the f
 \\ The position in the array will increment by the result
 ```
 13. NullPointerException occour when you invoke a method with a null reference.
+14. When using this. in an method, the logic lead us to look for an attribute in this class. If the attribute is inherited from another class, the good practice ask us to use super., this makes the code more practical to read.
+15. When a method needs to be rewrited for a sonClass, the good practice ask us to maintain the same visibility, return, name and parameters, if it's case.
 
 **Control Instruction and other objects**
 
