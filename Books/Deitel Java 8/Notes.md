@@ -36,6 +36,7 @@ The JVM communicate with the computer through machine language, so the program i
 22. Try and Catch are used to treat exceptions. Any excepctions caught in an execution inside a 'try' will occasionate an execution of the block 'catch'. Any variable described in the block 'try' only exists in this block. 
 23. JAVA doesn't have multidimensional arrays, every line in a multidimensional array is seen as a unidimensional array.
 24. Array class has a sort of methods to manipulate arrays.
+25. *this.* is a reference to a class variable of the object.
 ---
 
 **Java Types and operators**

@@ -14,15 +14,43 @@ You can only create this because:
 
 By doing this:
 1. You created an object Gerente of the type Funcionario.
-2. You can make your code smaller, because you can use as reference for sonClasses the superClass.
+2. You can make your code smaller, for instance, if you have a simmilar method for some classes, you can create a more generic method that absorb the needs of all classes, and by doing this your code will be smaller, you will write less and maintenance will become easier. By creating an object of a more generic type you can just invoke this method. Example:
+
+```
+public boolean transfere(double valor, Conta destino) {
+
+    if(this.saca(valor)) {
+        destino.deposita(valor);
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+3.  This method will work with any son of the class Conta.
+   
+---
 
 ##Methods
 
 A method signature is the form needed to invoke the method. For instance, maybe you have to input some parameters, maybe not. 
 
-Rewriting a method occur when you have a method in the superClass and you rewrite it in the sonClass, aiming a specific result for a class that inherits another. In this case the method in the sonClass have priority over the method in the superClass.
+Rewriting a method occur when you have a method in the superClass and you rewrite it in the sonClass, aiming a specific result for a class that inherits another. In this case the method in the sonClass have priority over the method in the superClass. A rewrite method must have the same original method's characteristics, such as return type and encapsulation.
 
-Method overload is when you have more than one method with the same name, doing basicaly the same thing. 
+Method overload is when you have more than one method with the same name, doing basicaly the same thing, the only differece will be the arguments.
+
+**Method Override**
+Occurs when you recreate a superClass's method in a sonClass body. Normally, IDE allows the use of shortcuts to help you handle those modifications.
+Override is a notation in the code that helps the compilation proccess, informing that the intention is to override a method.
+
+```
+        @Override
+        public method {
+
+        }
+```
+
+---
 
 ##Encapsulation
 
@@ -84,6 +112,54 @@ Funcionario => MotherClass or SuperClass
 When a class inherits another, it inherits all characteristics of the superClass, this means it inherits attributes, methods and behaviors. 
 Gerente is a Funcionario.
 
+Constructor are not inherited. You have to create a constructor in the sonClass, case necessary. 
+
+To use the superClass's constructor/method in a sonClass you have to use the statement super(). You can create a specific method/constructor in the superClass and use it in the sonClass, as bellow. Anyhow, you can just inoke the default superCLass's method/constructor .
+
+```
+public class ContaCorrente extends Conta {
+
+        public ContaCorrente() { //uses the superClass constructor
+            super();
+        }
+}
+```
+
 **Code Smells**
 Too many conditionals. 
+
+---
+
+##Classes
+
+**Creating a class:**
+```
+public abstract classFuncionario
+```
+where:
+|public|abstract class|Funcionario|
+|------|--------------|-----------|
+|Public, private, protected: visibiliy|can't instantiate because is an abstract conecept|ClassName|
+
+**Creating an instance:**
+```
+Funcionario g1 = new Funcionario();
+```
+
+where:
+
+g1 is a variable of the type Funcionario. 
+new Funcionario() creates an object of the Class Funcionario. 
+
+**Creating an instance using polymorphism**
+
+```
+Funcionario g1 = new Gerente();
+```
+
+where:
+
+g1 is a variable of the type Funcionario. 
+new Gerente() creates an object of the class Gerente.
+This is only possible because Gerente is a sonClass of the superClass Funcionario.
 
