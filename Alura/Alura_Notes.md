@@ -39,6 +39,20 @@ Rewriting a method occur when you have a method in the superClass and you rewrit
 
 Method overload is when you have more than one method with the same name, doing basicaly the same thing, the only differece will be the arguments.
 
+**Abstract Methods**
+
+Same logic of Abstract Classes. You do not want the method to return anything, but the method, due to logic, should exists in a superClass. All in all, the method do not have a body.
+An abstract item in a superClass oblige the sons to implementate the actions expected.
+
+```
+        public abstract double getBonificacao();
+```
+|public|abstract|double|getBonificacao()|
+|------|--------|------|----------------|
+|Encapsulation: public, private, protected|The method do not have a body|type|MethodName|
+
+
+
 **Method Override**
 Occurs when you recreate a superClass's method in a sonClass body. Normally, IDE allows the use of shortcuts to help you handle those modifications.
 Override is a notation in the code that helps the compilation proccess, informing that the intention is to override a method.
@@ -114,7 +128,8 @@ Gerente is a Funcionario.
 
 Constructor are not inherited. You have to create a constructor in the sonClass, case necessary. 
 
-To use the superClass's constructor/method in a sonClass you have to use the statement super(). You can create a specific method/constructor in the superClass and use it in the sonClass, as bellow. Anyhow, you can just inoke the default superCLass's method/constructor .
+To use the superClass's constructor/method in a sonClass you have to use the statement super(). You can create a specific method/constructor in the superClass and use it in the sonClass, as bellow. Anyhow, you can just invoke the default superCLass's method/constructor .
+The code *super.* should also bring superClass's methods.
 
 ```
 public class ContaCorrente extends Conta {
@@ -139,7 +154,7 @@ public abstract classFuncionario
 where:
 |public|abstract class|Funcionario|
 |------|--------------|-----------|
-|Public, private, protected: visibiliy|can't instantiate because is an abstract conecept|ClassName|
+|Public, private, protected: visibiliy/encapsulation|can't instantiate because is an abstract conecept|ClassName|
 
 **Creating an instance:**
 ```
@@ -163,3 +178,18 @@ g1 is a variable of the type Funcionario.
 new Gerente() creates an object of the class Gerente.
 This is only possible because Gerente is a sonClass of the superClass Funcionario.
 
+##Abstract concept
+
+The abstrat concept represents the concept of something needed for the logic, however there will be no objects of this thing in the code. 
+
+**Abstract Classes**
+You cannot instatiate abstract classes. 
+If the abstract class is a superClass, the sonClass are obliged to implement abstract methods.
+You do not have to implement abstract methods in the abstract class. 
+
+**Abstract Methods**
+sonClasses are obliged to implement abstract methods inherited from superClasses. 
+
+##Interface
+
+Interfaces are *intermediate classes* between sonClasses and superClasses. It is needed to attend particular needs, like, methods or attributes that only make sense for some sonClasses. 

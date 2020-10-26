@@ -37,6 +37,8 @@ The JVM communicate with the computer through machine language, so the program i
 23. JAVA doesn't have multidimensional arrays, every line in a multidimensional array is seen as a unidimensional array.
 24. Array class has a sort of methods to manipulate arrays.
 25. *this.* is a reference to a class variable of the object.
+26. *return -1* when you want something to not return anything, but, beware, if you are dealing with numbers, this might result in a contabil error.
+27. 
 ---
 
 **Java Types and operators**
