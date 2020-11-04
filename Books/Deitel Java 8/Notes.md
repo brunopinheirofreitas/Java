@@ -75,10 +75,13 @@ Primitives
 |  !| Conditional NOT|
 |Enum| It's a class. You can creat a enum by creating an object of the type ENUM, ex private enum Status {value1, value2, value3}; hence, Status become a type and you can create a variable of this type, ex: Status var1. Var1 by default has the values: value1, value2 or value3. Moreove, a ENUM should have a string value over a numeric value, it's easier to read the code.|
 
-
-
-
 ---
+
+###Enum
+1. Enum are types.
+2. Enum are implicit final and static.
+
+
 
 **Java Identation**
 
