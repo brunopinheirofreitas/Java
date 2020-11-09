@@ -1,0 +1,82 @@
+Loja de Vendas de Sapatos
+
+Produtos
+- Inclusão, consulta e exclusão de produtos
+	- Atributos: Nome, Valor, tipo, Genero, quantidade
+		- Tipo :
+			1 - Sapato
+			2 - Bota
+			3 - Tenis
+			4 - Sandalia
+		- Genero :
+			1 - Feminino
+			2 - Masculino
+			
+- Incluir matricula do prestador para as ações
+
+
+Prestadores
+- Atributos:
+	- Nome, SObrenome, matricula, Salario 
+
+- Tipos:
+	- Gerente, Vendedor, Caixa
+
+	- Gerente:
+		- Concede descontos de até 15%
+		- Bonus salarial: 2% do total de vendas dos vendedores sob sua 		gestão. 
+		- Usa senha para o desconto.
+		- Usa senha para o caixa. 
+		- Tem no maximo 4 vendedores.
+
+	- Vendedor:
+		- Concede desconto de até 5% 
+		- Bonus salarial: 2,5% das vendas. 
+		- Usa senha par o desconto.
+		- Tem 1 gerente.
+
+	- Caixa:
+		- Salario fixo: R$1024,00
+		- Usa senha para o caixa. 
+		- Bonus salarial: R$150,00
+
+	- Cliente:
+		- Nome, Sobrenome.
+		- Produto que comprou. 
+
+Venda de mercadoria
+
+- Atributos:
+	- Qual produto foi vendido.
+		- Excluir do inventario.
+	- Valor do produto
+	- Valor do desconto
+	- Valor final da venda.
+	- Descrição da venda.
+	- Quem vendeu
+	- Quem comprou
+- Ações:
+	- Incluir, excluir consultar venda. 
+
+Devoluções
+- Atributo:
+	- Qual produto foi vendido.
+		- Incluir no inventario.
+	- Valor do produto
+	- Valor do desconto
+	- Valor final da venda.
+	- Descrição da venda.
+	- Quem vendeu
+	- Quem comprou
+	- Marcar para estorno. 
+
+- Ações:
+	- Incluir, excluir consultar venda. 
+
+----------------------------------
+Sistema deverá ter um menu onde posso:
+- Incluir, excluir, consultar um produto.
+- Incluir, excluir, consultar uma venda.
+- Incluir, excluir, consultar uma devolução.
+- Incluir, excluir, consultar um funcionario. 
+- Consultar salario+bonus dos funcionarios. 

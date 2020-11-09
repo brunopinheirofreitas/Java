@@ -1,30 +1,48 @@
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public abstract class JoaquimStoreColaborator {
+
+	protected String colaboratorFamilyName;
+	protected String colaboratorName;
+	protected Date colaboratorBirthDate;
+	protected BigDecimal colaboratorGrossIncome;
+	protected int colaboratorIdNumber;
+	protected BigDecimal colaboratorVariableIncome;
 	
-	private String colaboratorFamilyName;
-	private String colaboratorName;
-	private BigDecimal colaboratorGrossIncome;
-	private int colaboratorIdNumber; 
-
-	public JoaquimStoreColaborator() {
-
+	public JoaquimStoreColaborator (String familyName, String name, Date birthdate, BigDecimal grossIncome) {
+		this.colaboratorFamilyName = familyName;
+		this.colaboratorName = name;
+		this.colaboratorBirthDate = birthdate;
+		this.colaboratorGrossIncome = grossIncome;
+		this.colaboratorIdNumber++;
 	}
-	
-	/*
-	 * public abstract void setColaboratorFamilyName (); public abstract String
-	 * getColaboratorFamilyName (); public abstract void setColaboratorName ();
-	 * public abstract String getColaboratorName ();
-	 */
-	
-	public abstract void setColaboratorFullName ();
-	public abstract String getColaboratorFullName ();	
-	public abstract void setColaboratorGrossIncome ();
-	public abstract BigDecimal getColaboratorGrossIncome ();
-	public abstract void setColaboratorIdNumber ();
-	public abstract int getColaboratorIdNumber ();
-	
-	
-	
-}
 
+	public String getColaboratorInformation(int idNumber) {
+		if (idNumber == colaboratorIdNumber) {
+			return ("Colaborator full name: " + colaboratorName + " " + colaboratorFamilyName + " Birthdate: " + this.colaboratorBirthDate);
+		} else {
+			return null;
+		}
+	}
+
+	public BigDecimal getColaboratorGrossIncome(int idNumber) {
+		if (idNumber == colaboratorIdNumber) {
+			return colaboratorGrossIncome;
+		} else {
+			return null;
+		}
+	}
+
+	public int getColaboratorIdNumber(String familyName, String name, Date birthDate) {
+		if (familyName == colaboratorFamilyName && name == colaboratorName && colaboratorBirthDate == birthDate) {
+			return colaboratorIdNumber;
+		} else {
+			return 0;
+		}
+	}
+
+}
