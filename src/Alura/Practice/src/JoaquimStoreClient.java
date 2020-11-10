@@ -5,28 +5,40 @@ public class JoaquimStoreClient {
 	private String clientName;
 	private int clientID;
 	
+	//Constructor
 	public JoaquimStoreClient (String familyName, String name, int clientID) {
 		this.clientFamilyName = familyName;
 		this.clientName = name;
 		this.clientID = clientID;
 	}
 	
-	public String getClientInformation (int clientID) {
-		if (clientID == this.clientID) {
-			return ("Cliente full name: " + this.clientName + " " + this.clientFamilyName + " ID: " + this.clientID);
-		} else {
-			return "Client not found!";
-		}
+	//Methods
+	public String getClientInformation () {
+		return ("Cliente full name: " + this.clientName + " " + this.clientFamilyName + " ID: " + this.clientID);
 	}
 	
-	public int getClientID (String familyName, String name) {
-		if (familyName == this.clientFamilyName && name == this.clientName) {
+	public int getClientID () {
 			return this.clientID;
-		} else {
-			return -1;
-		}
 	}
-	
-	
+
+	public String getClientFamilyName() {
+		return clientFamilyName;
+	}
+
+	public void setClientFamilyName(String clientFamilyName) {
+		this.clientFamilyName = clientFamilyName;
+	}
+
+	public String getClientName() {
+		return clientName;
+	}
+
+	public void setClientName(String clientName) {
+		this.clientName = clientName;
+	}
+
+	public void setClientID(int clientID) {
+		this.clientID = clientID;
+	}
 
 }

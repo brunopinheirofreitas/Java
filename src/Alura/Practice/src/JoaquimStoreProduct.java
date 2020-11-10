@@ -2,19 +2,21 @@ import java.math.BigDecimal;
 
 public class JoaquimStoreProduct {
 	
-	protected String productName; 
-	protected int productSize;
-	protected BigDecimal productValue;
-	protected int productType; 
+	private String productName; 
+	private int productSize;
+	private BigDecimal productValue;
+	private BigDecimal productDiscount= new BigDecimal(0);
+	private double discountValue;
+	private int productType; 
 	/*
 	 * FORMAL_SHOE(1), BOOT(2), TENNIS(3), SANDAL(4), CASUAL_SHOE(5);
 	 */
-	protected int gender;
+	private int gender;
 	/*
 	 * MALE(1), FEMALE(2), NO_GENDER(3);
 	 */
-	protected int productQuantity;
-	protected int productID;
+	private int productQuantity;
+	private int productID;
 
 	//Constructor
 	public JoaquimStoreProduct (String productName, int productSize, BigDecimal productValue, int productType, int gender) {
@@ -30,16 +32,35 @@ public class JoaquimStoreProduct {
 	
 	//Methods
 	
-	public int getProductID (int productType, int productSize, int gender, String productName) {
-		if (productType == this.productType && productSize == this.productSize && gender == this.gender && productName == this.productName) {
-			return this.productID;
-		} else {
-			return -1;
+	public void setProductDiscount (double discount) {
+		this.discountValue = discount;
+		BigDecimal priceDiscount = this.productValue.multiply(new BigDecimal(discount));
+		this.productDiscount = priceDiscount;
+	}
+	
+	public BigDecimal getProductFinalPrice () {
+		BigDecimal finalPrice = this.productValue.subtract(this.productDiscount);
+		return finalPrice;
+	}
+
+	
+	public void setProductDiscountVendor (double productDiscount, JoaquimStoreVendor vendor, int password) {
+		if (vendor.getDiscountPasswordAutentication(password)) {
+			this.setProductDiscount(productDiscount);
 		}
 	}
 	
-	public String getProduct (int productID) {
-		if (productID == this.productID) {
+	public void setProductDiscountManager (double productDiscount, JoaquimStoreManager manager, int password) {
+		if (manager.getDiscountPasswordAutentication(password)) {
+			this.setProductDiscount(productDiscount);
+		}
+	}
+	
+	public int getProductID () {
+		return this.productID;
+	}
+	
+	public String getProductInfo () {
 			String productType = null; 
 			switch (this.productType) {
 			case 1: 
@@ -72,30 +93,64 @@ public class JoaquimStoreProduct {
 			}
 			
 			return ("Product: " + this.productName + " Size: " + this.productSize + " Value: " + this.productValue + " Type: " + productType + " Gender: " + gender + " Quantity: " + this.productQuantity);
-		} else {
-			return ("Product not found!");
-		}
-
 	}
 	
-	public BigDecimal getProductValue (int productID) {
+	public BigDecimal getProductValue () {
 		return this.productValue;		
 	}
 	
-	public void setProductQuantity (int productID, int productQuantity) {
+	public void setProductValue (BigDecimal productValue) {
+		this.productValue = productValue;
+	}
+	
+	public BigDecimal getProductDiscount () {
+		return this.productDiscount;		
+	}
+	
+	public void setProductQuantity (int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
 	
-	public int getProductQuantity (int productID) {
+	public int getProductQuantity () {
 		return this.productQuantity;
 	}
 	
-	public void productSell (int productID) {
-		if (this.productQuantity == 0) {
-			return;
-		} else {
+	public void setProductSell () {
+		if (this.productQuantity != 0) {
 			this.productQuantity--;
 		}
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public int getProductSize() {
+		return productSize;
+	}
+
+	public void setProductSize(int productSize) {
+		this.productSize = productSize;
+	}
+
+	public int getProductType() {
+		return productType;
+	}
+
+	public void setProductType(int productType) {
+		this.productType = productType;
+	}
+
+	public int getGender() {
+		return gender;
+	}
+
+	public void setGender(int gender) {
+		this.gender = gender;
 	}
 	
 }	

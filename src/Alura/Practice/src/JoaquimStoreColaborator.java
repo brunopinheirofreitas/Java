@@ -10,9 +10,10 @@ public abstract class JoaquimStoreColaborator {
 	protected String colaboratorName;
 	protected Date colaboratorBirthDate;
 	protected BigDecimal colaboratorGrossIncome;
-	protected int colaboratorIdNumber;
-	protected BigDecimal colaboratorVariableIncome;
+    protected int colaboratorIdNumber;
+	protected BigDecimal colaboratorVariableIncome = new BigDecimal (0);
 	
+	//Constructor
 	public JoaquimStoreColaborator (String familyName, String name, Date birthdate, BigDecimal grossIncome) {
 		this.colaboratorFamilyName = familyName;
 		this.colaboratorName = name;
@@ -21,28 +22,54 @@ public abstract class JoaquimStoreColaborator {
 		this.colaboratorIdNumber++;
 	}
 
-	public String getColaboratorInformation(int idNumber) {
-		if (idNumber == colaboratorIdNumber) {
-			return ("Colaborator full name: " + colaboratorName + " " + colaboratorFamilyName + " Birthdate: " + this.colaboratorBirthDate);
-		} else {
-			return null;
-		}
+	//Methods
+	
+	public String getColaboratorInformation() {
+			return ("Colaborator full name: " + this.colaboratorName + " " + this.colaboratorFamilyName + " Birthdate: " + this.colaboratorBirthDate);
 	}
 
-	public BigDecimal getColaboratorGrossIncome(int idNumber) {
-		if (idNumber == colaboratorIdNumber) {
-			return colaboratorGrossIncome;
-		} else {
-			return null;
-		}
+	public BigDecimal getColaboratorVariableIncome() {
+		return colaboratorVariableIncome;
 	}
 
-	public int getColaboratorIdNumber(String familyName, String name, Date birthDate) {
-		if (familyName == colaboratorFamilyName && name == colaboratorName && colaboratorBirthDate == birthDate) {
-			return colaboratorIdNumber;
-		} else {
-			return 0;
-		}
+	public void setColaboratorVariableIncome(BigDecimal colaboratorVariableIncome) {
+		this.colaboratorVariableIncome = (this.colaboratorVariableIncome.add(colaboratorVariableIncome));
+	}
+
+	public int getColaboratorIdNumber() {
+			return this.colaboratorIdNumber;
+	}
+
+	public String getColaboratorFamilyName() {
+		return colaboratorFamilyName;
+	}
+
+	public void setColaboratorFamilyName(String colaboratorFamilyName) {
+		this.colaboratorFamilyName = colaboratorFamilyName;
+	}
+
+	public String getColaboratorName() {
+		return colaboratorName;
+	}
+
+	public void setColaboratorName(String colaboratorName) {
+		this.colaboratorName = colaboratorName;
+	}
+
+	public Date getColaboratorBirthDate() {
+		return colaboratorBirthDate;
+	}
+
+	public void setColaboratorBirthDate(Date colaboratorBirthDate) {
+		this.colaboratorBirthDate = colaboratorBirthDate;
+	}
+
+	public BigDecimal getColaboratorGrossIncome() {
+		return colaboratorGrossIncome;
+	}
+
+	public void setColaboratorGrossIncome(BigDecimal colaboratorGrossIncome) {
+		this.colaboratorGrossIncome = colaboratorGrossIncome;
 	}
 
 }
