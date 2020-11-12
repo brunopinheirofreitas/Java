@@ -6,7 +6,7 @@ public class JoaquimStoreSale {
 	JoaquimStoreVendor vendorSale;
 	JoaquimStoreClient clientSale;
 	private String saleDescription;
-	private boolean saleReturn = false;
+	private boolean saleDevolution = false;
 	
 	//Constructor
 	public JoaquimStoreSale (JoaquimStoreProduct product, JoaquimStoreVendor vendor, JoaquimStoreClient client, String saleDescription) {
@@ -16,18 +16,22 @@ public class JoaquimStoreSale {
 		this.saleDescription = saleDescription;
 		this.productSale.setProductSell();
 		BigDecimal colaboratorVariableIncome = this.productSale.getProductValue().multiply(new BigDecimal(this.vendorSale.getMaxVariableIncome()));
-		this.vendorSale.setColaboratorVariableIncome(colaboratorVariableIncome);
+		BigDecimal colaboratorVariableIncomeTotal = colaboratorVariableIncome.add(this.vendorSale.getColaboratorVariableIncome());
+		this.vendorSale.setColaboratorVariableIncome(colaboratorVariableIncomeTotal);
 		this.productSale.setProductDiscount(this.vendorSale.getMaxVariableIncome());
+		BigDecimal managerSaleValue = product.getProductValue().multiply(new BigDecimal (this.vendorSale.getVendorManager().getManagerMaxVariableIncome()));
+		BigDecimal managerSaleValueTotal = managerSaleValue.add(this.vendorSale.getVendorManager().getColaboratorVariableIncome());
+		this.vendorSale.getVendorManager().setColaboratorVariableIncome(managerSaleValueTotal);
 	}
 
 	//Methods
 	
-	public boolean getSaleReturn () {
-		return this.saleReturn;
+	public boolean getSaleDevolution () {
+		return this.saleDevolution;
 	}
 	
-	public void setSaleReturn (boolean saleReturn) {
-		this.saleReturn = saleReturn;
+	public void setSaleDevolution (boolean saleDevolution) {
+		this.saleDevolution = saleDevolution;
 		int returnProduct = this.productSale.getProductQuantity()+1;
 		this.productSale.setProductQuantity(returnProduct);
 	}
@@ -40,7 +44,7 @@ public class JoaquimStoreSale {
 				this.productSale.setProductDiscountManager(discount, manager, password);
 	}
 
-	public String getProductSold () {
+	public String getProductInfo () {
 		return this.productSale.getProductInfo();
 	}
 	

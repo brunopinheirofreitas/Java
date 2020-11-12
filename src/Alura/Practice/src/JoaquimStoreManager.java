@@ -3,51 +3,55 @@ import java.util.Date;
 
 public class JoaquimStoreManager extends JoaquimStoreColaborator implements JoaquimColaboratorCashierPassword, JoaquimColaboratorDiscountPassword {
 
-	private ColaboratorCashierAutentication passwordChasier;
-	private ColaboratorDiscountAutentication passwordDiscount;
+	private ColaboratorCashier passwordChasier = new ColaboratorCashier();
+	private ColaboratorDiscount passwordDiscount = new ColaboratorDiscount();
 	static final double maxDiscount = 0.15;
-	int[] vendorID;
 	static int maxVendorPerManager = 4;
+	JoaquimStoreVendor[] vendorID = new JoaquimStoreVendor[maxVendorPerManager];
 	private double maxVariableIncome = 0.02;
 
 	//Constructor	
-	public JoaquimStoreManager(String familyName, String name, Date birthdate, BigDecimal grossIncome) {
+	public JoaquimStoreManager(String familyName, String name, String birthdate, BigDecimal grossIncome) {
 		super(familyName, name, birthdate, grossIncome);
 	}
 	
 	//Method	
 	
-	public BigDecimal getManagerVariableIncome (JoaquimStoreVendor vendor) {
-		for (int i=0; i <= maxVendorPerManager; i++) {
-			if (this.vendorID[i]==vendor.getColaboratorIdNumber()) {
-				this.setColaboratorVariableIncome(this.getColaboratorVariableIncome().add(vendor.getColaboratorVariableIncome()));
-			}
-		}
-		return this.getColaboratorVariableIncome();
+	public int getMaxVendorPerManager() {
+		return this.maxVendorPerManager;
 	}
 	
-	public static double getManagerMaxDiscount () {
+	public void setMaxVendorPerManager(int maxVendorPerManager) {
+		this.maxVendorPerManager = maxVendorPerManager;
+		
+	}
+	
+	public double getManagerMaxDiscount () {
 		return maxDiscount;
 		
 	}
 	
 	public void setVendorTeam(int position, JoaquimStoreVendor vendor) {
 		if (position <= maxVendorPerManager) {
-			this.vendorID[position] = vendor.getColaboratorIdNumber();
+			this.vendorID[position] = vendor;
 		}
 	}
 	
-	public int[] getManagerTeam () {
+	public JoaquimStoreVendor[] getManagerTeam () {
 		return this.vendorID;
 	}
 	
-	public int getVendorManager (JoaquimStoreVendor vendor) {
+	public JoaquimStoreVendor getVendorManager (JoaquimStoreVendor vendor) {
 		for (int i=0; i <= maxVendorPerManager; i++) {
-			if (this.vendorID[i]==vendor.getColaboratorIdNumber()) {
-				return super.colaboratorIdNumber;
+			if (this.vendorID[i]==vendor) {
+				return vendorID[i];
 			} 
 		}
-		return -1;
+		return null;
+	}
+	
+	public double getManagerMaxVariableIncome () {
+		return this.maxVariableIncome;
 	}
 	
 	@Override

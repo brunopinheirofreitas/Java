@@ -3,10 +3,10 @@ import java.util.Date;
 
 public class JoaquimStoreCashier extends JoaquimStoreColaborator implements JoaquimColaboratorCashierPassword {
 
-	private ColaboratorCashierAutentication passwordChasier;
+	private ColaboratorCashier passwordChasier;
 	
 	//Constructor
-	public JoaquimStoreCashier(String familyName, String name, Date birthdate, BigDecimal grossIncome) {
+	public JoaquimStoreCashier(String familyName, String name, String birthdate, BigDecimal grossIncome) {
 		super(familyName, name, birthdate, grossIncome);
 	}
 	

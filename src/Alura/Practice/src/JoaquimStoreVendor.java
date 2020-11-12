@@ -3,21 +3,25 @@ import java.util.Date;
 
 public class JoaquimStoreVendor extends JoaquimStoreColaborator implements JoaquimColaboratorDiscountPassword {
 
-	ColaboratorDiscountAutentication passwordDiscount;
+	ColaboratorDiscount passwordDiscount = new ColaboratorDiscount();
 	static final double maxDiscount = 0.05;
-	private int vendorManager;
 	private double maxVariableIncome = 0.025;
+	private JoaquimStoreManager manager;
 	
 	//Constructor
-	public JoaquimStoreVendor(String familyName, String name, Date birthdate, BigDecimal grossIncome) {
+	public JoaquimStoreVendor(String familyName, String name, String birthdate, BigDecimal grossIncome) {
 		super(familyName, name, birthdate, grossIncome);
 
 	}
 	
 	//Method
 	
-	public int getVendorManager () {
-		return this.vendorManager;
+	public void setVendorManager (JoaquimStoreManager manager) {
+		this.manager = manager;
+	}
+	
+	public JoaquimStoreManager getVendorManager () {
+		return manager;
 	}
 	
 	public double getMaxVariableIncome() {
@@ -28,10 +32,6 @@ public class JoaquimStoreVendor extends JoaquimStoreColaborator implements Joaqu
 		this.maxVariableIncome = maxVariableIncome;
 	}
 
-	public void setVendorManager (JoaquimStoreManager manager) {
-		this.vendorManager = manager.getColaboratorIdNumber();
-	}
-	
 	public static double getVendorMaxDiscount () {
 		return maxDiscount;
 	}

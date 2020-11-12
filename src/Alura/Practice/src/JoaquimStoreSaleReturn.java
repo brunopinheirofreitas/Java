@@ -19,8 +19,8 @@ public class JoaquimStoreSaleReturn {
 		return this.productSale;
 	}
 	
-	public void setProductReturn (boolean saleReturn) {
-		this.productSale.setSaleReturn(saleReturn);
+	public void setProductReturn (boolean saleDevolution) {
+		this.productSale.setSaleDevolution(saleDevolution);
 	}
 
 }

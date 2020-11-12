@@ -8,13 +8,13 @@ public abstract class JoaquimStoreColaborator {
 
 	protected String colaboratorFamilyName;
 	protected String colaboratorName;
-	protected Date colaboratorBirthDate;
+	protected String colaboratorBirthDate;
 	protected BigDecimal colaboratorGrossIncome;
     protected int colaboratorIdNumber;
 	protected BigDecimal colaboratorVariableIncome = new BigDecimal (0);
 	
 	//Constructor
-	public JoaquimStoreColaborator (String familyName, String name, Date birthdate, BigDecimal grossIncome) {
+	public JoaquimStoreColaborator (String familyName, String name, String birthdate, BigDecimal grossIncome) {
 		this.colaboratorFamilyName = familyName;
 		this.colaboratorName = name;
 		this.colaboratorBirthDate = birthdate;
@@ -25,7 +25,7 @@ public abstract class JoaquimStoreColaborator {
 	//Methods
 	
 	public String getColaboratorInformation() {
-			return ("Colaborator full name: " + this.colaboratorName + " " + this.colaboratorFamilyName + " Birthdate: " + this.colaboratorBirthDate);
+			return (this.colaboratorName + " " + this.colaboratorFamilyName + " " + this.colaboratorBirthDate);
 	}
 
 	public BigDecimal getColaboratorVariableIncome() {
@@ -56,11 +56,11 @@ public abstract class JoaquimStoreColaborator {
 		this.colaboratorName = colaboratorName;
 	}
 
-	public Date getColaboratorBirthDate() {
+	public String getColaboratorBirthDate() {
 		return colaboratorBirthDate;
 	}
 
-	public void setColaboratorBirthDate(Date colaboratorBirthDate) {
+	public void setColaboratorBirthDate(String colaboratorBirthDate) {
 		this.colaboratorBirthDate = colaboratorBirthDate;
 	}
 

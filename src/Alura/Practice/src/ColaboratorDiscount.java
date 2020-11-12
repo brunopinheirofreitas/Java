@@ -1,5 +1,5 @@
 
-public class ColaboratorCashierAutentication {
+public class ColaboratorDiscount {
 	
 	int colaboratorPassword;
 	
