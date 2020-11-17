@@ -234,3 +234,98 @@ Explicit means the you'll lose part of the information when casting. That's why 
 Too many conditionals. 
 
 ---
+
+###JAVADOC and Notes
+Javadoc: 
+```
+/**
+*
+*   @AuthorName. Give a information about this part of the code.
+*
+*/
+```
+
+Notes
+- A substitute for the former way of notations, XML.
+- Use @ instead of XML. Example:
+
+```
+@basic
+@column
+@Id
+@Entity
+@table
+```
+
+- By doing this, a library knows how to read this configuration and know , for instance, what that method does. The purpose for those notes is to configurate some details for some libraries.
+- Ex: JPA, Hibernate. Those libraries know how to read notes. 
+- Notes are like a class, you can create your own.
+
+---
+
+###Exceptions
+
+- Normally, compilators stack block of codes when executing a code.
+
+Consider this:
+
+```
+Main {
+    method 1 {
+        method 2
+    }
+}
+```
+
+When executing, stacks are:
+    - Main
+    - Main > Method1
+    - Main > Method1 > Method2
+    - Main > Method1
+    - Main
+
+Every exception launched shows the position in the stack where the error occour and the line.
+
+```
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at Fluxo.metodo2(Fluxo.java:22) // top stack, line 22
+	at Fluxo.metodo1(Fluxo.java:12) // middle stack, line 12
+	at Fluxo.main(Fluxo.java:6) // bottom stack, line 6
+```
+
+**Try and Catch**
+
+```
+try {
+
+}
+catch (exception_name variable) {
+   here_you_treat_the_exception (sysout, for ex)
+} catch (exception_name variable) {
+   here_you_treat_the_exception (sysout, for ex)
+} catch (exception_name variable) {
+   here_you_treat_the_exception (sysout, for ex)
+}
+```
+- You can use the Try-Catch in any part of the code that are relationad with the part of the code that can generate an exception.
+  - That's why the exceptions shows the stack of execution and the line.
+- You can have multiples catch or:
+
+```
+try {
+
+}
+catch (exception_name | exception_name | exception_name variable) {
+   here_you_treat_the_exception (sysout, for ex)
+}
+```
+
+- 'Variable' is a reference, so you can use . to invoke methods of this reference.
+
+```
+try {
+			metodo1();		
+		} catch(ArithmeticException ex) {
+			ex.printStackTrace();
+		}		
+```

@@ -80,6 +80,47 @@ Primitives
 ###Enum
 1. Enum are types.
 2. Enum are implicit final and static.
+3. Enum are objects in a roll.
+
+```
+	
+	MIN(1), NORMAL(5), MAX(10);
+	
+	private int valor;
+	
+	Priority(int valor) {
+		this.valor = valor;
+	}
+	
+	public int getValor() {
+		return this.valor;
+	}
+
+}
+```
+
+enum.Name = Strings of the enum: MIN, NORMAL or MAX.
+enum.Ordinal = Position in the roll of the enum: MIN = 0, NORMAL = 1 and MAX = 2.
+enum.method = You can create methods in an enum, it work just like a class, however you can't instantiate a ENUM. 
+
+Example of a mainclass invoking an enum class.
+```
+public class testeEnum {
+
+	public static void main(String[] args) {
+		
+		Priority pMin = Priority.MIN;
+		Priority pNormal = Priority.NORMAL;
+		Priority pMax = Priority.MAX;
+		
+		System.out.println(pMin.name()); //should appear MIN
+		System.out.println(pMin.ordinal()); // should appear 0
+		System.out.println(pMin.getValor()); // should appear 1
+
+	}
+
+}
+```
 
 
 

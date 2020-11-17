@@ -33,8 +33,8 @@ public class JoaquimStoreProduct {
 	//Methods
 	
 	public void setProductDiscount (double discount) {
-		this.discountValue = discount;
-		BigDecimal priceDiscount = this.productValue.multiply(new BigDecimal(discount));
+		this.discountValue = discount/100;
+		BigDecimal priceDiscount = this.productValue.multiply(new BigDecimal(this.discountValue));
 		this.productDiscount = priceDiscount;
 	}
 	

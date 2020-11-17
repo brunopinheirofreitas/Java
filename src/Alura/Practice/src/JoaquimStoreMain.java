@@ -94,12 +94,36 @@ public class JoaquimStoreMain {
 		//Selling something
 		
 		JoaquimStoreSale saleOne = new JoaquimStoreSale(storeFormal, vendorTwo, clientTwo, "Sale of a normal shoe for a teenager");
+		JoaquimStoreSale saleTwo = new JoaquimStoreSale(storeBoots, vendorThree, clientTwo, "Sale of a boot for a teenager");
 		
 		//Testing Sale Methods
 		System.out.println("Product sold: " + saleOne.getProductInfo());
 		System.out.println("Product Price: " + saleOne.getProductPrice());
 		System.out.println("Product Discount: " + saleOne.getProductDiscount());
 		System.out.println("Product Final Price: " + saleOne.getProductFinalPrice());
+		
+		//Testing paystub methods
+		
+		System.out.println("Manager total income: " + JoaquimStoreColaboratorPayStub.payStubColaborator(managerTwo));
+		System.out.println("Vendor total income: " + JoaquimStoreColaboratorPayStub.payStubColaborator(vendorOne));
+		System.out.println("Vendor total income: " + JoaquimStoreColaboratorPayStub.payStubColaborator(vendorTwo));
+		System.out.println("Vendor total income: " + JoaquimStoreColaboratorPayStub.payStubColaborator(vendorThree));
+		System.out.println("Vendor total income: " + JoaquimStoreColaboratorPayStub.payStubColaborator(vendorFour));
+		System.out.println("Vendor total income: " + JoaquimStoreColaboratorPayStub.payStubColaborator(vendorFive));
+		
+		//Testing discount
+		System.out.println("SETTING A DISCOUNT TO A PRODUCT");
+		saleOne.setVendorProductDiscount(vendorOne, 0000, 100);
+		System.out.println("Product sold: " + saleOne.getProductInfo());
+		System.out.println("Product Price: " + saleOne.getProductPrice());
+		System.out.println("Product Discount: " + saleOne.getProductDiscount());
+		System.out.println("Product Final Price: " + saleOne.getProductFinalPrice());
+		
+		//Testing devolutions
+		System.out.println("Product info and quantity: " + saleOne.getProductInfo());
+		System.out.println("I'm returning this.");
+		saleOne.setSaleDevolution(true);
+		System.out.println("Product info and quantity: " + saleOne.getProductInfo());
 		
 	}
 

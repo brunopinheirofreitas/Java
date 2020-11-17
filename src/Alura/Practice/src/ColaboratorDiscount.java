@@ -4,15 +4,20 @@ public class ColaboratorDiscount {
 	int colaboratorPassword;
 	
 	public void setColaboratorPassword (int password) {
-		this.colaboratorPassword = password;
+		if(password != 0) {
+			this.colaboratorPassword = password;
+		}
 	}
 	
 	public boolean colaboratorSystemAutentication (int password) {
-		if (this.colaboratorPassword == password) {
-			return true;
-		} else {
-			return false;
+		if(password != 0) {
+			if (this.colaboratorPassword == password) {
+				return true;
+			} else {
+				return false;
+			}
 		}
+		return false;
 	}
 
 }

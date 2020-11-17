@@ -18,7 +18,6 @@ public class JoaquimStoreSale {
 		BigDecimal colaboratorVariableIncome = this.productSale.getProductValue().multiply(new BigDecimal(this.vendorSale.getMaxVariableIncome()));
 		BigDecimal colaboratorVariableIncomeTotal = colaboratorVariableIncome.add(this.vendorSale.getColaboratorVariableIncome());
 		this.vendorSale.setColaboratorVariableIncome(colaboratorVariableIncomeTotal);
-		this.productSale.setProductDiscount(this.vendorSale.getMaxVariableIncome());
 		BigDecimal managerSaleValue = product.getProductValue().multiply(new BigDecimal (this.vendorSale.getVendorManager().getManagerMaxVariableIncome()));
 		BigDecimal managerSaleValueTotal = managerSaleValue.add(this.vendorSale.getVendorManager().getColaboratorVariableIncome());
 		this.vendorSale.getVendorManager().setColaboratorVariableIncome(managerSaleValueTotal);
