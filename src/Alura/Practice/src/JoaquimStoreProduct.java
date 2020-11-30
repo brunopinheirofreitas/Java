@@ -7,27 +7,19 @@ public class JoaquimStoreProduct {
 	private BigDecimal productValue;
 	private BigDecimal productDiscount= new BigDecimal(0);
 	private double discountValue;
-	private int productType; 
-	/*
-	 * FORMAL_SHOE(1), BOOT(2), TENNIS(3), SANDAL(4), CASUAL_SHOE(5);
-	 */
-	private int gender;
-	/*
-	 * MALE(1), FEMALE(2), NO_GENDER(3);
-	 */
+	private ProductType productType; 
+	private Gender gender;
 	private int productQuantity;
 	private int productID;
 
 	//Constructor
-	public JoaquimStoreProduct (String productName, int productSize, BigDecimal productValue, int productType, int gender) {
-		if (productType <= 5 || productType >= 1 && gender >= 1 || gender <= 3) {
+	public JoaquimStoreProduct (String productName, int productSize, BigDecimal productValue, ProductType productType, Gender gender) {
 				this.productName = productName;
 				this.productSize = productSize;
 				this.productValue = productValue;
 				this.productType = productType;
 				this.gender = gender;
 				this.productID++;
-	}
 }
 	
 	//Methods
@@ -61,38 +53,7 @@ public class JoaquimStoreProduct {
 	}
 	
 	public String getProductInfo () {
-			String productType = null; 
-			switch (this.productType) {
-			case 1: 
-				productType = "FORMAL_SHOE";
-				break;
-			case 2:
-				productType = "BOOT";
-				break;
-			case 3:
-				productType = "TENNIS";
-				break;
-			case 4:
-				productType = "SANDAL";
-				break;
-			case 5:
-				productType = "CASUAL_SHOE";
-				break;
-			}
-			String gender = null;
-			switch (this.gender) {
-			case 1:
-				gender = "MALE";
-				break;
-			case 2:
-				gender = "FEMALE";
-				break;
-			case 3:
-				gender = "NO_GENDER";
-				break;
-			}
-			
-			return ("Product: " + this.productName + " Size: " + this.productSize + " Value: " + this.productValue + " Type: " + productType + " Gender: " + gender + " Quantity: " + this.productQuantity);
+			return ("Product: " + this.productName + " Size: " + this.productSize + " Value: " + this.productValue + " Type: " + productType.name() + " Gender: " + gender.name() + " Quantity: " + this.productQuantity);
 	}
 	
 	public BigDecimal getProductValue () {
@@ -137,19 +98,19 @@ public class JoaquimStoreProduct {
 		this.productSize = productSize;
 	}
 
-	public int getProductType() {
-		return productType;
+	public String getProductType() {
+		return productType.name();
 	}
 
-	public void setProductType(int productType) {
+	public void setProductType(ProductType productType) {
 		this.productType = productType;
 	}
 
-	public int getGender() {
-		return gender;
+	public String getGender() {
+		return gender.name();
 	}
 
-	public void setGender(int gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 	

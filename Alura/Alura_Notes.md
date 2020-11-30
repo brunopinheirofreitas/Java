@@ -265,7 +265,7 @@ Notes
 
 ###Exceptions
 
-- Normally, compilators stack block of codes when executing a code.
+- Normally, compilators stack blocks of code when executing a code. When encountering an error, the compiler stops when the error occour if the error is not handled by the code.
 
 Consider this:
 
@@ -320,7 +320,9 @@ catch (exception_name | exception_name | exception_name variable) {
 }
 ```
 
-- 'Variable' is a reference, so you can use . to invoke methods of this reference.
+- 'Variable' is a reference, so you can use . to invoke methods of this reference. Ex:
+  - variable.printStackTrace();
+  - variable.getMessage();
 
 ```
 try {
@@ -329,3 +331,72 @@ try {
 			ex.printStackTrace();
 		}		
 ```
+**Throw**
+
+You use 'throw' to create an exception in a code. As exceptions are classes, you can create an object of this class and throw your own exceptions. Ex:
+
+```
+ArithmeticException ex = new ArithmeticException("Deu errado");
+		throw ex; //could be throw new ArithmeticException();
+
+When executing:
+    java.lang.ArithmeticException: Deu errado
+	at Fluxo.metodo2(Fluxo.java:29)
+	at Fluxo.metodo1(Fluxo.java:23)
+	at Fluxo.main(Fluxo.java:12)
+``` 
+
+When executing this code, the compiler will stop at this part of the code. Throw is simmilar to a 'return' statement. Nothing above a throw will be executed. Mostly compilers/IDE will present an error in lines bellow a throw statement. 
+
+**Creating your own exceptions**
+You can create your own classes extending RuntimeException or another class that throw exceptions.
+Some classes are only used by the VM, developers normally do not use them.
+
+```
+Example:
+
+public class MyException extends RuntimeException {};
+
+In main: throw new MyException("Deu mais ou menos errado");
+
+Console:
+Ini do main
+Ini do metodo1
+Ini do metodo2
+Exception Deu mais ou menos errado
+MyException: Deu mais ou menos errado
+	at Fluxo.metodo2(Fluxo.java:29)
+	at Fluxo.metodo1(Fluxo.java:23)
+	at Fluxo.main(Fluxo.java:12)
+Fim do main
+``` 
+
+However, if you change the inheritance of the class, you should consider this:
+- Some classes are not verified by compilers, normally classes that extend RuntimeException.
+  -  RuntimeException is a motherclass of some exceptions in java, so the compiler do not check some exceptions throws when the motherclass is RuntimeException. This occours because some errors happens because of the code.
+  -  If you inherits directly from a any superclass above RuntimeException, the compiler will check some throw exceptions and normally IDE's could launch some errors depending on the way you create your code.
+
+```
+How handle exception inherit other superclasses:
+
+If:
+public class MyException extends Exception{} //Compiler will check throws.
+
+public class Fluxo extends Conta {
+    private static void metodo2() throws MyException { //this will work
+    }
+
+    or
+
+    private static void metodo1() {
+    System.out.println("Ini do metodo1");
+    try { //try - catch will make the code work as well
+        metodo2();
+    } catch(MyException ex) {}
+    System.out.println("Fim do metodo1");
+}
+```
+
+
+
+

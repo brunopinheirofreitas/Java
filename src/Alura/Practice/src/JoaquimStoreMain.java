@@ -3,6 +3,8 @@ import java.util.Date;
 public class JoaquimStoreMain {
 
 	public static void main(String[] args) {
+		
+		//Creating objects
 		JoaquimStoreProduct storeBoots;
 		JoaquimStoreProduct storeSandals;
 		JoaquimStoreProduct storeCasual;
@@ -10,9 +12,6 @@ public class JoaquimStoreMain {
 		JoaquimStoreProduct storeFormal;
 		/*
 		 * FORMAL_SHOE(1), BOOT(2), TENNIS(3), SANDAL(4), CASUAL_SHOE(5);
-		 */
-		/*
-		 * MALE(1), FEMALE(2), NO_GENDER(3);
 		 */
 		JoaquimStoreManager managerOne;
 		JoaquimStoreManager managerTwo;
@@ -26,18 +25,42 @@ public class JoaquimStoreMain {
 		
 		int[] managerTeam;
 		
+		//Creating enum objects
+		Gender maleGender = Gender.MALE;
+		Gender femaleGender = Gender.FEMALE;
+		Gender noGender = Gender.NO_GENDER;
+		ProductType formalShoe = ProductType.FORMAL_SHOE;
+		ProductType boot = ProductType.BOOT;
+		ProductType tennis = ProductType.TENNIS;
+		ProductType sandal = ProductType.SANDAL;
+		ProductType casualShoe = ProductType.CASUAL_SHOE;		
+		
 		//Creating products
 		
-		storeBoots = new JoaquimStoreProduct("SnowBoot", 40, new BigDecimal(150.00), 2, 1);
+		storeBoots = new JoaquimStoreProduct("SnowBoot", 40, new BigDecimal(150.00), boot, maleGender);
 		storeBoots.setProductQuantity(10);
-		storeSandals = new JoaquimStoreProduct("OldManSandals", 39, new BigDecimal (75.00), 4, 1);
+		storeSandals = new JoaquimStoreProduct("OldManSandals", 39, new BigDecimal (75.00), sandal, maleGender);
 		storeSandals.setProductQuantity(8);
-		storeCasual = new JoaquimStoreProduct("CasualShow", 42, new BigDecimal(125.00), 5, 2);
+		storeCasual = new JoaquimStoreProduct("CasualShow", 42, new BigDecimal(125.00), casualShoe, femaleGender);
 		storeCasual.setProductQuantity(6);
-		storeTennis = new JoaquimStoreProduct("BoltTennis", 36, new BigDecimal(100.0), 3, 2);
+		storeTennis = new JoaquimStoreProduct("BoltTennis", 36, new BigDecimal(100.0), tennis, femaleGender);
 		storeTennis.setProductQuantity(4);
-		storeFormal = new JoaquimStoreProduct("WorkShoe", 35, new BigDecimal (350.00), 1, 3);
+		storeFormal = new JoaquimStoreProduct("WorkShoe", 35, new BigDecimal (350.00), formalShoe, noGender);
 		storeFormal.setProductQuantity(1);
+		
+		//Testing enum
+		System.out.println("Enum is working?");
+		System.out.println("Name: " + maleGender.name());
+		System.out.println("Position: " + maleGender.ordinal());
+		System.out.println("Value: " + maleGender.getGender());
+		System.out.println("Name: " + casualShoe.name());
+		System.out.println("Positon: " + casualShoe.ordinal());
+		System.out.println("Value: " + casualShoe.getValue());
+		
+		//Getting Product Info
+		System.out.println("Product 01: " + storeBoots.getProductInfo());
+		System.out.println("Product 02: " + storeSandals.getProductInfo());
+		
 		
 		//Creating Vendor
 		

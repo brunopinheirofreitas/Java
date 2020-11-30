@@ -83,7 +83,8 @@ Primitives
 3. Enum are objects in a roll.
 
 ```
-	
+	public enum Priority {
+      
 	MIN(1), NORMAL(5), MAX(10);
 	
 	private int valor;
