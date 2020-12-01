@@ -309,7 +309,7 @@ catch (exception_name variable) {
 ```
 - You can use the Try-Catch in any part of the code that are relationad with the part of the code that can generate an exception.
   - That's why the exceptions shows the stack of execution and the line.
-- You can have multiples catch or:
+- You can have multiples parameters in catch statement:
 
 ```
 try {
@@ -372,8 +372,8 @@ Fim do main
 ``` 
 
 However, if you change the inheritance of the class, you should consider this:
-- Some classes are not verified by compilers, normally classes that extend RuntimeException.
-  -  RuntimeException is a motherclass of some exceptions in java, so the compiler do not check some exceptions throws when the motherclass is RuntimeException. This occours because some errors happens because of the code.
+- Some classes are not verified by compilers, which means, the throw statement in unchecked. Normally classes that extends RuntimeException are unchecked.
+  -  RuntimeException is a motherclass of some exceptions in java, so the compiler do not check some throws exceptions when the motherclass is RuntimeException. This occours because some errors happens because of the code.
   -  If you inherits directly from a any superclass above RuntimeException, the compiler will check some throw exceptions and normally IDE's could launch some errors depending on the way you create your code.
 
 ```
@@ -396,7 +396,43 @@ public class Fluxo extends Conta {
     System.out.println("Fim do metodo1");
 }
 ```
+**Generic Try and Catch  - Classes extending Class Exception**
 
+```
+try {
 
+} catch (Exception ex) {
+    treatment;
+}
+```
+The superclass Exception is the mother of all exceptions, so you can use it as a generic catch.
+
+**Finally**
+
+Finally will always be executed in a try-catch statement.
+You can use try-finally, as well. Meaning you do not want to treat the exception.
+Finally is not mandatory.
+
+```
+try {
+    something...;
+} catch (execption_name ex) {
+    solve the exception issue;
+} finally {
+    get back to to something after the exception;
+}
+```
+
+**AutoCloseable interface**
+
+Every time you open a conection with something, you need to close it. Instead of invoking your own openings and closings statements, you can try *implements* the AutoCloseable interface. 
+After that you can proceed as bellow:
+
+```
+		try (Conection conection = new Conection()) {
+        }
+```
+
+Automaticaly the conection will be opened and closed by the interface. 
 
 
