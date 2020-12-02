@@ -41,7 +41,7 @@ public class JoaquimStoreMain {
 		storeBoots.setProductQuantity(10);
 		storeSandals = new JoaquimStoreProduct("OldManSandals", 39, new BigDecimal (75.00), sandal, maleGender);
 		storeSandals.setProductQuantity(8);
-		storeCasual = new JoaquimStoreProduct("CasualShow", 42, new BigDecimal(125.00), casualShoe, femaleGender);
+		storeCasual = new JoaquimStoreProduct("CasualShoe", 42, new BigDecimal(125.00), casualShoe, femaleGender);
 		storeCasual.setProductQuantity(6);
 		storeTennis = new JoaquimStoreProduct("BoltTennis", 36, new BigDecimal(100.0), tennis, femaleGender);
 		storeTennis.setProductQuantity(4);
@@ -113,11 +113,13 @@ public class JoaquimStoreMain {
 		
 		//Creating a Client
 		JoaquimStoreClient clientTwo = new JoaquimStoreClient("Parker", "Peter", 123456);
+		JoaquimStoreClient clientOne = new JoaquimStoreClient("Stark", "Tony", 6598456);
 		
 		//Selling something
 		
-		JoaquimStoreSale saleOne = new JoaquimStoreSale(storeFormal, vendorTwo, clientTwo, "Sale of a normal shoe for a teenager");
+		JoaquimStoreSale saleOne = new JoaquimStoreSale(storeCasual, vendorTwo, clientTwo, "Sale of a normal shoe for a teenager");
 		JoaquimStoreSale saleTwo = new JoaquimStoreSale(storeBoots, vendorThree, clientTwo, "Sale of a boot for a teenager");
+		JoaquimStoreSale saleThree = new JoaquimStoreSale(storeFormal, vendorOne, clientOne, "Sale of a formal shoe for a gentleman");
 		
 		//Testing Sale Methods
 		System.out.println("Product sold: " + saleOne.getProductInfo());
@@ -148,6 +150,18 @@ public class JoaquimStoreMain {
 		saleOne.setSaleDevolution(true);
 		System.out.println("Product info and quantity: " + saleOne.getProductInfo());
 		
+		//Testing excpetions
+		System.out.println(".");
+		System.out.println("..");
+		System.out.println("...");
+		System.out.println("Trying exceptions");
+		System.out.println("Sale three: " + saleThree.getProductInfo());
+		try {
+			JoaquimStoreSale saleFour = new JoaquimStoreSale(storeFormal, vendorOne, clientOne, "Sale of a formal shoe for a gentleman, again");
+		} catch (ProductSellException ex) {
+			System.out.println("Canceling sell.");
+			System.out.println("Returning...");
+		} 
 	}
 
 }

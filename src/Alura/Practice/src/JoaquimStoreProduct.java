@@ -76,9 +76,11 @@ public class JoaquimStoreProduct {
 		return this.productQuantity;
 	}
 	
-	public void setProductSell () {
-		if (this.productQuantity != 0) {
+	public void setProductSell (JoaquimStoreProduct product) {
+		if (this.productQuantity > 0) {
 			this.productQuantity--;
+		} else {
+			throw new ProductSellException(product);
 		}
 	}
 

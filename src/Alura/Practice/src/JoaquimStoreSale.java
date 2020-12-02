@@ -10,11 +10,11 @@ public class JoaquimStoreSale {
 	
 	//Constructor
 	public JoaquimStoreSale (JoaquimStoreProduct product, JoaquimStoreVendor vendor, JoaquimStoreClient client, String saleDescription) {
+		product.setProductSell(product);
 		this.productSale = product;
 		this.vendorSale = vendor;
 		this.clientSale = client;
 		this.saleDescription = saleDescription;
-		this.productSale.setProductSell();
 		BigDecimal colaboratorVariableIncome = this.productSale.getProductValue().multiply(new BigDecimal(this.vendorSale.getMaxVariableIncome()));
 		BigDecimal colaboratorVariableIncomeTotal = colaboratorVariableIncome.add(this.vendorSale.getColaboratorVariableIncome());
 		this.vendorSale.setColaboratorVariableIncome(colaboratorVariableIncomeTotal);
