@@ -1,3 +1,6 @@
+package test;
+
+import model.*;
 
 public class testeEnum {
 

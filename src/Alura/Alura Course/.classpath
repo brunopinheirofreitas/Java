@@ -8,5 +8,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Enum"/>
 	<classpathentry kind="src" path="Exceptions"/>
+	<classpathentry kind="src" path="Libraries"/>
+	<classpathentry kind="src" path="JavaLibraries"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

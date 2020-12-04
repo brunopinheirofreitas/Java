@@ -1,3 +1,7 @@
+package test;
+
+import model.*;
+
 public class TesteContas {
 
 	public static void main(String[] args) {

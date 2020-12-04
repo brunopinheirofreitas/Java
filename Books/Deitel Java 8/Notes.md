@@ -38,7 +38,9 @@ The JVM communicate with the computer through machine language, so the program i
 24. Array class has a sort of methods to manipulate arrays.
 25. *this.* is a reference to a class variable of the object.
 26. *return -1* when you want something to not return anything, but, beware, if you are dealing with numbers, this might result in a contabil error.
-27. 
+27. The first line in a class, when dealing with packages, should be the package name.
+28. You can organize folders in eclipse in Navigator, however this could mess up your packages e make your code not to compile.
+29. Classes should be classified by the name of the package + name of the class: PackageName.ClassName.java
 ---
 
 **Java Types and operators**
