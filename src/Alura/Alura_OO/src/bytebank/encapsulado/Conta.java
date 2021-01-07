@@ -1,7 +1,7 @@
 package bytebank.encapsulado;
 
 /**This class storage information regarding account number and account value of clients.
- * @author BrunoFreitas
+ * @author BrunoFreitasr
  * */
 
 public class Conta {

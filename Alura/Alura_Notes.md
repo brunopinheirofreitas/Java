@@ -651,7 +651,6 @@ Exception in thread "main" java.lang.ArithmeticException: / by zero
 
 ```
 try {
-
 }
 catch (exception_name variable) {
    here_you_treat_the_exception (sysout, for ex)
@@ -667,7 +666,6 @@ catch (exception_name variable) {
 
 ```
 try {
-
 }
 catch (exception_name | exception_name | exception_name variable) {
    here_you_treat_the_exception (sysout, for ex)
@@ -811,3 +809,12 @@ Automaticaly the conection will be opened and closed by the interface.
     @since
     @serial
     @deprecated
+
+###Java .JAR - Java Archive
+
+- You can import JAR libraries by clicking with the right buttom of the mouse and selectin "build path":
+  - If the libs are in the project folder, just select import jar.
+  - If the libs aren't in the project folder, select "external jar"
+
+By doing that you can use classes of the JAR file, JAR is kind of a .zip file, compressing all classes and docs of a lib.
+
