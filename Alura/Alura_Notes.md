@@ -171,6 +171,7 @@ Presents the output under a specific format acording to % specification in the f
 13. NullPointerException occour when you invoke a method with a null reference.
 14. When using this. in an method, the logic lead us to look for an attribute in this class. If the attribute is inherited from another class, the good practice ask us to use super., this makes the code more practical to read.
 15. When a method needs to be rewrited for a sonClass, the good practice ask us to maintain the same visibility, return, name and parameters, if it's case.
+16. Always organize your classes in a package.
 
 **Control Instruction and other objects**
 
@@ -192,10 +193,31 @@ catch (exception name) {
 }
 
 *Arrays*
+
+Arrays can be created using primitive types and other objects: 
+
 ```
-int [] name = new int [lenght];
-String[] name = new String[length], name2 = new String[lenght];
-int [] name = { 1, 2, 3, 4, ...};
+//Primitive
+int [] name = new int [lenght]; // creating an int array
+String[] name = new String[length], name2 = new String[lenght]; //referencing a position of an array with a object
+int [] name = { 1, 2, 3, 4, ...}; //creating a literal array
+
+//When using primitives, the default value of an array is 0.
+
+//Other objects
+
+Class Conta {
+   int conta;
+}
+
+TestaArrayObject {
+   Main {
+      Conta [] contas = new Conta [5];
+   }
+}
+
+//When creating arrays from objects, the default value of an array is NULL.
+//A reference is when you handle an and object in a code. 
 ```
 
 *Multidimensional Arrays*
@@ -816,5 +838,24 @@ Automaticaly the conection will be opened and closed by the interface.
   - If the libs are in the project folder, just select import jar.
   - If the libs aren't in the project folder, select "external jar"
 
-By doing that you can use classes of the JAR file, JAR is kind of a .zip file, compressing all classes and docs of a lib.
+By doing that you can use classes of the JAR file, JAR is kind of a .zip file, compressing all classes and docs of a lib/project.
+
+###Cast
+
+You transform a generic reference in a specific reference. Ex:
+It's possible to use with objects as well.
+
+//Explicit Cast
+Double number1 = 2.0;
+sysytem.out.println ( (int) number1);
+
+terminal: 2
+
+//Implicit cast
+ContaCorrente conta = new ContaCorrente (value);
+Conta conta; 
+
+//Conta is a generic type of ContaCorrente.
+```
+
 
