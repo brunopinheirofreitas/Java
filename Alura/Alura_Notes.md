@@ -172,6 +172,7 @@ Presents the output under a specific format acording to % specification in the f
 14. When using this. in an method, the logic lead us to look for an attribute in this class. If the attribute is inherited from another class, the good practice ask us to use super., this makes the code more practical to read.
 15. When a method needs to be rewrited for a sonClass, the good practice ask us to maintain the same visibility, return, name and parameters, if it's case.
 16. Always organize your classes in a package.
+17. To specify a data structure to only use a type, use <>, ex: ArrayLlist<Type> array1. The variable array1 only can store information of the *Type*.
 
 **Control Instruction and other objects**
 
@@ -858,4 +859,25 @@ Conta conta;
 //Conta is a generic type of ContaCorrente.
 ```
 
+###Java.lang
 
+Strings come from this lib.
+
+To avoid printing the memory information on  the console you can override the method toString in a class.
+```
+public class Conta {
+
+	protected double saldo;
+	private int agencia;
+	private int numero;
+	private Cliente titular;
+	private static int total = 0;
+public String toString() {
+		return "Agencia: "+agencia + " " + "Numero: " + numero;
+	}
+``` 
+
+
+###Java.util
+
+- Focus on this class, it's huge and increase productivity.

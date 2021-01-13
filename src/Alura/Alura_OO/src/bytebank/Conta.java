@@ -77,5 +77,9 @@ public class Conta {
 	public static int getTotal() {
 		return Conta.total;
 	}
+	
+	public String toString() {
+		return "Agencia: "+agencia + " " + "Numero: " + numero;
+	}
 
 }
