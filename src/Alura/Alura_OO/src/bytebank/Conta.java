@@ -9,7 +9,7 @@ public class Conta {
 
 	public Conta(int agencia, int numero) {
 		Conta.total++;
-		System.out.println("O total de contas é " + Conta.total);
+		System.out.println("O total de contas sao " + Conta.total);
 		this.agencia = agencia;
 		this.numero = numero;
 		this.saldo = 100;
@@ -76,6 +76,28 @@ public class Conta {
 
 	public static int getTotal() {
 		return Conta.total;
+	}
+	
+	@Override
+	public boolean equals(Object ref) { //passing a generic type
+		Conta c = (Conta) ref; //casting ref as a conta, transforming a specific type into a generic type.
+		if (this.agencia != c.agencia) {
+			return false;
+		}
+		if (this.numero != c.numero) {
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean ehIgual (Conta c) {
+		if (this.agencia != c.agencia) {
+			return false;
+		}
+		if (this.numero != c.numero) {
+			return false;
+		}
+		return true;
 	}
 	
 	public String toString() {

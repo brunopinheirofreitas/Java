@@ -105,6 +105,10 @@ import java.lang
 
 import java.util.*
 - Import every class from a package.
+
+import java.lang.number
+- Motherclass of all numeric types in java. You can create a reference of Number to manipulate different types.
+
 ---
 
 **Console Commands**:
@@ -524,16 +528,16 @@ public class Gerente extends Funcionario implements Autenticavel, Bonificavel {
 
 ##Variable Size
 
-|Type|Lenght|
-|----|------|
-|boolean|1 bit|
-|byte|1 byte|
-|short|2 bytes|
-|char|2 bytes|
-|int|4 bytes|
-|float|4 bytes|
-|long|8 bytes|
-|double|8 bytes|
+|Type|Lenght|Wrappers|
+|----|------|-----------------------|
+|boolean|1 bit|java.lang.Boolean|
+|byte|1 byte|java.lang.Byte|
+|short|2 bytes|java.lang.Short|
+|char|2 bytes|java.lang.Character|
+|int|4 bytes|java.lang.Integer|
+|float|4 bytes|java.lang.Float|
+|long|8 bytes|java.lang.Bytes|
+|double|8 bytes|java.lang.Double|
 
 ##Variable Manipulation
 
@@ -881,3 +885,10 @@ public String toString() {
 ###Java.util
 
 - Focus on this class, it's huge and increase productivity.
+- LinkedList differs from ArrayList because follows an double order, each element connects into another by references of the next element and the previous element.
+- Type List is an interface.
+- Vector is also a type of list, however it's thread safe.
+- Autoboxing: when java transforms a reference in an object. For instance, an INT in an INTEGER.
+- Unboxing: When java transforms an object in a reference. For instance, an INTEGER in an INT.
+- Wrapper: It's a class that handle primitive types, allowing autoboxing and unboxing.
+- Instead of autoboxing, the good practice is to create an object of the Interger type.
