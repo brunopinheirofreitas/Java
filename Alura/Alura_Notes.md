@@ -881,6 +881,8 @@ public String toString() {
 	}
 ``` 
 
+- the method compareTo compare objects in a more natural way, distincts from java.lang.compare interface.
+- Other way to compare is by using java.lang.comparable. It's an interface.
 
 ###Java.util
 
@@ -892,3 +894,5 @@ public String toString() {
 - Unboxing: When java transforms an object in a reference. For instance, an INTEGER in an INT.
 - Wrapper: It's a class that handle primitive types, allowing autoboxing and unboxing.
 - Instead of autoboxing, the good practice is to create an object of the Interger type.
+- You can use java.util.compare to compare things. It's an interface.
+- You can use java.util.collections to also compare things. A natural order is setted by the user inside the class, the collections order using this specification.
