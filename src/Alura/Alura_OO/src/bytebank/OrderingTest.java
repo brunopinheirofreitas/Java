@@ -8,7 +8,7 @@ public class OrderingTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-collections
+
 		Cliente cl1 = new Cliente();
 		cl1.setNome("Paulo Silveira");
 		Cliente cl2 = new Cliente();
@@ -74,7 +74,8 @@ collections
 		for (Conta conta : listOrdering) {
 			System.out.println(conta);
 		}
-
+		
+		//Function Object
 		NumeroDaContaComparator comparator = new NumeroDaContaComparator();
 		listOrdering.sort(comparator);
 
@@ -92,6 +93,26 @@ collections
 		for (Conta conta : listOrdering) {
 			System.out.println(conta + ", " + conta.getTitular().getNome());
 		}
+		
+		//Anonymous class		
+		NumeroDaContaComparator comparator1 = new NumeroDaContaComparator();
+		
+		listOrdering.sort(new Comparator<Conta>() {
+			
+			@Override
+			public int compare(Conta c1, Conta c2) {
+				return Integer.compare(c1.getNumero(), c2.getNumero());
+			};
+		}			
+); //end
+		
+
+		
+//Lambdas
+		listOrdering.sort( (Conta c1, Conta c2) -> Integer.compare(c1.getNumero(), c2.getNumero()));
+//end
+		
+		
 
 	}
 

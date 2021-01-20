@@ -15,7 +15,7 @@ class Programa {
 	        aulas.add(aulaModelando);
 	        aulas.add(aulaSets);
 
-	        Collections.sort(aulas);
+	       // Collections.sort(aulas);
 
 	        for (Aula aula : aulas) {
 	            System.out.println(aula);

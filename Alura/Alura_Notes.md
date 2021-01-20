@@ -47,6 +47,9 @@ The JVM communicate with the computer through machine language, so the program i
 31. It's common to organize classes in packages. In a class should be:
     1.  import first
     2.  package after
+32. Function Object: An object that encapsule a function, for instance, when you override a method from a superclass to attend specific proposit.
+33. Anonymous class: When you create an class in the mid of a code. The compilator automatic creates the class for you.
+34. Lambdas: '->' it's a form to diminish coding. An anonymous class, for instance, is automatic created when you use lambdas, the main goal is to shorten the code you write.
 ---
 
 **Java Types and operators**
@@ -896,3 +899,7 @@ public String toString() {
 - Instead of autoboxing, the good practice is to create an object of the Interger type.
 - You can use java.util.compare to compare things. It's an interface.
 - You can use java.util.collections to also compare things. A natural order is setted by the user inside the class, the collections order using this specification.
+
+###Java.IO
+
+ - Handle the input and output of data in the java world.
