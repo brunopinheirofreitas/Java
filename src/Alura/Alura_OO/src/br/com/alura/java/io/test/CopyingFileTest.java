@@ -14,7 +14,7 @@ public class CopyingFileTest {
 		// TODO Auto-generated method stub
 		
 		//Reading file
-		FileInputStream fis = new FileInputStream("client.txt"); //sonClass of InputStream
+		FileInputStream fis = new FileInputStream("client.txt"); //sonClass of InputStream, System.in reads from keyboard.
 		InputStreamReader isr = new InputStreamReader(fis); //sonClass of Reader
 		BufferedReader br = new BufferedReader(isr);
 		//Writing file 		
