@@ -348,7 +348,7 @@ Protected - You can access this information through an object of the class or th
 
 ##Abstract concept
 
-The abstrat concept represents the concept of something needed for the logic, however there will be no objects of this thing in the code. 
+The abstrat concept represents the idea of something needed for the logic, however there will be no objects of this thing in the code. 
 
 **Abstract Classes**
 You cannot instatiate abstract classes. 
@@ -902,4 +902,4 @@ public String toString() {
 
 ###Java.IO
 
- - Handle the input and output of data in the java world.
+ - Handle the input and output of data in the java world. DB, keyboard, files, network, etc.
