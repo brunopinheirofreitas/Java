@@ -899,7 +899,20 @@ public String toString() {
 - Instead of autoboxing, the good practice is to create an object of the Interger type.
 - You can use java.util.compare to compare things. It's an interface.
 - You can use java.util.collections to also compare things. A natural order is setted by the user inside the class, the collections order using this specification.
+- A lot of parsing stuff.
 
 ###Java.IO
 
  - Handle the input and output of data in the java world. DB, keyboard, files, network, etc.
+
+###java.util.properties
+
+- To handle information regarding values that has no need to be compiled every time, for instance, server names, IP, ports, passwords. You can configure a property document and stablish those constant values in this document and to use in your code you just have to import it.
+   - For instance, you can create a conf.properties file by using ```props.store(new FileWriter("conf.properties"), "algum comentário");```
+```
+Properties props = new Properties();        
+props.load(new FileReader("conf.properties"));
+String login = props.getProperty("login"); //to read the property value
+String senha = props.getProperty("senha");
+String endereco = props.getProperty("endereco");
+```
