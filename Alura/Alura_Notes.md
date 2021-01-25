@@ -50,6 +50,8 @@ The JVM communicate with the computer through machine language, so the program i
 32. Function Object: An object that encapsule a function, for instance, when you override a method from a superclass to attend specific proposit.
 33. Anonymous class: When you create an class in the mid of a code. The compilator automatic creates the class for you.
 34. Lambdas: '->' it's a form to diminish coding. An anonymous class, for instance, is automatic created when you use lambdas, the main goal is to shorten the code you write.
+35. ```private static final long serialVersionUID = 1L;``` //This identify the version of the class, therefore all objects of this class could be different.
+36. transient means the attribute should not be serializied.
 ---
 
 **Java Types and operators**
@@ -180,6 +182,11 @@ Presents the output under a specific format acording to % specification in the f
 15. When a method needs to be rewrited for a sonClass, the good practice ask us to maintain the same visibility, return, name and parameters, if it's case.
 16. Always organize your classes in a package.
 17. To specify a data structure to only use a type, use <>, ex: ArrayLlist<Type> array1. The variable array1 only can store information of the *Type*.
+18. Unicode is the best option to handle special characters and UTF-8 is the best encoding, normally you have:
+    1.  Unicode it's a table that transliterate the char in a codepoint.
+    2.  The Codepoint need to pass through an encoding, normally those encoding are:
+        1.  ASCII, UTF8, UTF16, windows 1252
+19. Use serialVersionUID when creating a class.
 
 **Control Instruction and other objects**
 
@@ -904,6 +911,8 @@ public String toString() {
 ###Java.IO
 
  - Handle the input and output of data in the java world. DB, keyboard, files, network, etc.
+ - Serialization is an objtec becoming a binary stream.
+ - Descerialization is an binary strema becoming an object.
 
 ###java.util.properties
 
@@ -916,3 +925,5 @@ String login = props.getProperty("login"); //to read the property value
 String senha = props.getProperty("senha");
 String endereco = props.getProperty("endereco");
 ```
+###java.nio.charset
+- Handle unicode and encoding.

@@ -1,5 +1,7 @@
 package bytebank;
-public class Cliente {
+public class Cliente implements java.io.Serializable{
+	
+	//private static final long serialVersionUID = 1L; //This identify the version of the class, therefore all objects of this class could be different.
 
     private String nome;
     private String cpf;

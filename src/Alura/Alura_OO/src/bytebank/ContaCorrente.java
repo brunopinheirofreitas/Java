@@ -1,6 +1,6 @@
 package bytebank;
 
-public class ContaCorrente extends Conta{
+public class ContaCorrente extends Conta {
 	
 	public ContaCorrente(int agencia, int numero) {
 		super(agencia, numero);
@@ -9,6 +9,7 @@ public class ContaCorrente extends Conta{
 
 	@Override //Note to inform the compiler that you want to override an existing method.
 	public void deposita(double valor) {
+		super.saldo = super.saldo + valor;
 		//method arguments
 	}
 
