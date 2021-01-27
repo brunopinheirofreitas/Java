@@ -52,6 +52,8 @@ The JVM communicate with the computer through machine language, so the program i
 34. Lambdas: '->' it's a form to diminish coding. An anonymous class, for instance, is automatic created when you use lambdas, the main goal is to shorten the code you write.
 35. ```private static final long serialVersionUID = 1L;``` //This identify the version of the class, therefore all objects of this class could be different.
 36. transient means the attribute should not be serializied.
+37. ArrayList aren't good if you want to change/remove elements in some position, however it's good to return a specific element in a position and to add elements.
+38. Linkedlist is good if you have a list that changes it's elements a lot, by removing it, for instance, however itsn't good to return a specific element in a position or to add elements.
 ---
 
 **Java Types and operators**
@@ -187,6 +189,7 @@ Presents the output under a specific format acording to % specification in the f
     2.  The Codepoint need to pass through an encoding, normally those encoding are:
         1.  ASCII, UTF8, UTF16, windows 1252
 19. Use serialVersionUID when creating a class.
+20. Generic is GOOD, specific is sometimes BAD.
 
 **Control Instruction and other objects**
 
