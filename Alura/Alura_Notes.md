@@ -190,6 +190,7 @@ Presents the output under a specific format acording to % specification in the f
         1.  ASCII, UTF8, UTF16, windows 1252
 19. Use serialVersionUID when creating a class.
 20. Generic is GOOD, specific is sometimes BAD.
+21. HashSet is better to handle large amount of elements, however for basic purpose, such as finding an element or using a specific position, lists are better.
 
 **Control Instruction and other objects**
 
@@ -910,6 +911,7 @@ public String toString() {
 - You can use java.util.compare to compare things. It's an interface.
 - You can use java.util.collections to also compare things. A natural order is setted by the user inside the class, the collections order using this specification.
 - A lot of parsing stuff.
+- HashSet, Lists, Set and other usefull things are here.
 
 ###Java.IO
 
@@ -930,3 +932,4 @@ String endereco = props.getProperty("endereco");
 ```
 ###java.nio.charset
 - Handle unicode and encoding.
+

@@ -2,13 +2,16 @@ package br.com.alura;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Program {
 
 	private String name;
 	private String instructor;
 	private List<Class> classes = new ArrayList<Class>();
+	private Set<Student> student = new HashSet<>();
 
 	public Program(String name, String instructor) {
 		super();
@@ -39,6 +42,14 @@ public class Program {
 			totalTime += class1.getTempo();
 		}
 		return totalTime;
+	}
+	
+	public void seatConfirmed(Student studentConfirmed) {
+		this.student.add(studentConfirmed);
+	}
+	
+	public Set<Student> getStudents() {
+		return Collections.unmodifiableSet(student);
 	}
 	
 
