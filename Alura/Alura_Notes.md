@@ -191,6 +191,9 @@ Presents the output under a specific format acording to % specification in the f
 19. Use serialVersionUID when creating a class.
 20. Generic is GOOD, specific is sometimes BAD.
 21. HashSet is better to handle large amount of elements, however for basic purpose, such as finding an element or using a specific position, lists are better.
+22. hashCode is a good practice for working with strings, to see if them are equals.
+23. Iterator == foreach, pretty common in old java.
+24. Vector is thread-safe, because it's sincronyzed.
 
 **Control Instruction and other objects**
 

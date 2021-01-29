@@ -6,7 +6,9 @@ public class Student {
 	private int id;
 	
 	public Student(String name, int id) {
-		super();
+		if (name == null) {
+			throw new NullPointerException();
+		}
 		this.name = name;
 		this.id = id;
 	}
@@ -25,6 +27,18 @@ public class Student {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	@Override
+	public boolean equals(Object obj) { //overriding object.class method to compare using my references
+		Student otherStudent = (Student) obj;
+		return this.name.equals(otherStudent.name);
+	}
+	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return this.name.hashCode();
 	}
 	
 }

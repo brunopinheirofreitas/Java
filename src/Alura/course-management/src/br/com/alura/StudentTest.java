@@ -44,6 +44,20 @@ public class StudentTest {
 			System.out.println(student.getName());
 		}
 		
+		System.out.println("------------A specific student is enrolled?-----------");
+		
+		System.out.println("Student " + a1.getName() + "is enrolled? " +  javaColections.getStudenEnrolled(a1));
+		
+		System.out.println("------------------Equals------------");
+		
+		Student equalsTest = new Student("Giovanni Antonelli", 8546896);
+		
+		System.out.println("Student equals method: " + a3.equals(equalsTest));
+		System.out.println("The student " + equalsTest + " is enrolled? " + javaColections.getStudenEnrolled(equalsTest));
+		
+		System.out.println("-----COmpaging hashCode------------");
+		System.out.println(a3.hashCode() + " is equal to " + equalsTest.hashCode());
+		
 
 	}
 

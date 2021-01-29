@@ -51,6 +51,10 @@ public class Program {
 	public Set<Student> getStudents() {
 		return Collections.unmodifiableSet(student);
 	}
+
+	public boolean getStudenEnrolled(Student student) {
+		return this.student.contains(student);
+	}
 	
 
 }
