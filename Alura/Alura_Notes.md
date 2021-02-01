@@ -53,7 +53,9 @@ The JVM communicate with the computer through machine language, so the program i
 35. ```private static final long serialVersionUID = 1L;``` //This identify the version of the class, therefore all objects of this class could be different.
 36. transient means the attribute should not be serializied.
 37. ArrayList aren't good if you want to change/remove elements in some position, however it's good to return a specific element in a position and to add elements.
-38. Linkedlist is good if you have a list that changes it's elements a lot, by removing it, for instance, however itsn't good to return a specific element in a position or to add elements.
+38. Linkedlist is good if you have a list that changes it's elements a lot, by removing it, for instance, however itsn't good to return a specific element in a position or to add elements. Linked keeps order.
+39. Map is a class, it work like a data structure based in a key and a value. In this structure, if you repeat a key, its value is overrided.
+40. The "hash" term in hashSet and hashMap means that the group is organized by a special form o table that group similar elements, making the searching for an element much more faster than using normal Sit or List classes.
 ---
 
 **Java Types and operators**
@@ -194,6 +196,10 @@ Presents the output under a specific format acording to % specification in the f
 22. hashCode is a good practice for working with strings, to see if them are equals.
 23. Iterator == foreach, pretty common in old java.
 24. Vector is thread-safe, because it's sincronyzed.
+25. Not sure about what type of collection to use, declare Collection, because it's a motherClass and after that you can decided what to use. Remember, List and Set are sonClasses of Collection. And do not mistake Collection with Collections. Collection is a motherClass and Collections is an interface.
+26. TreeSet keeps order and do not allow repetition of elements.
+27. hash make things faster. Link order this. Set store things without the need of order.
+
 
 **Control Instruction and other objects**
 

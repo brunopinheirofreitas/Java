@@ -58,6 +58,15 @@ public class StudentTest {
 		System.out.println("-----COmpaging hashCode------------");
 		System.out.println(a3.hashCode() + " is equal to " + equalsTest.hashCode());
 		
+		//--Maps--Find students in a program.
+		
+		System.out.println("------------------MAPS-----------------");
+		System.out.println("Who is the student " + a2.getId());
+		
+		System.out.println(javaColections.findStudentById(654987).getName());
+		
+		
+		
 
 	}
 

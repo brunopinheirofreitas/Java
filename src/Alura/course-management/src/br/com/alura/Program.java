@@ -2,8 +2,11 @@ package br.com.alura;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 public class Program {
@@ -12,6 +15,7 @@ public class Program {
 	private String instructor;
 	private List<Class> classes = new ArrayList<Class>();
 	private Set<Student> student = new HashSet<>();
+	private Map<Integer, Student> studentEnrolled = new HashMap<>();
 
 	public Program(String name, String instructor) {
 		super();
@@ -46,6 +50,7 @@ public class Program {
 	
 	public void seatConfirmed(Student studentConfirmed) {
 		this.student.add(studentConfirmed);
+		this.studentEnrolled.put(studentConfirmed.getId(), studentConfirmed);
 	}
 	
 	public Set<Student> getStudents() {
@@ -54,6 +59,22 @@ public class Program {
 
 	public boolean getStudenEnrolled(Student student) {
 		return this.student.contains(student);
+	}
+	
+	public Student findStudentById (int id) {
+		
+//Using map
+		return studentEnrolled.get(id);
+		
+		
+		
+//		for (Student specificStudent : student) { //Simple way o write 
+//			if(specificStudent.getId() == id) {
+//				return specificStudent;
+//			}
+//		}
+//		throw new NoSuchElementException("Id not foud: " + id); 
+		//return null;
 	}
 	
 
