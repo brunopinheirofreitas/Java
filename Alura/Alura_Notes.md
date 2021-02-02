@@ -199,6 +199,104 @@ Presents the output under a specific format acording to % specification in the f
 25. Not sure about what type of collection to use, declare Collection, because it's a motherClass and after that you can decided what to use. Remember, List and Set are sonClasses of Collection. And do not mistake Collection with Collections. Collection is a motherClass and Collections is an interface.
 26. TreeSet keeps order and do not allow repetition of elements.
 27. hash make things faster. Link order this. Set store things without the need of order.
+28. ```default``` statement it's used when a method within an interface have a body. Ex: ```default void sort(...)```.
+29. It's a good idea to use an anonymous implementation inside a class, without to have to create another class just to use a few methods, for instance:
+```
+Consumer<String> stringEater = new Consumer<String>() { //By doing this I can use the method **accept** without creating a class
+   @Override
+   public void accept(String s) {
+      System.out.println(s);
+   }
+}
+```
+30. Anonymous class is praticle.
+31. It's a good pratcice to use anonymous class implementations as an argument for something, however compromise legibility. ex:
+```
+forEach(new Consumer<String>() { 
+   @Override
+   public void accept(String s) {
+      System.out.println(s);
+   }
+});
+``` 
+32. If possible, use lambdas to shorten your code:
+```
+//The code above using lambdas:
+forEach((String s) -> {
+   System.out.println(s);
+});
+//-------------shorten more-----------
+forEach(s -> System.out.println(s));
+```
+32. Fucntional Interface is an interface with one abstract method, lambdas work in this cases. Resuming: Lambdas only work with functional interfaces that has one abstract method and receive one argument. The function interface can also have default or statics methods, however, only one abstract method.
+33. Using lambdas:
+```
+//----------Withou lambdas
+
+public class StringOrdenation {
+
+	public static void main(String[] args) {
+		List<String> words = new ArrayList<String>();
+		Comparator organizedByLenght = new SizeComparator();
+		words.add("Fazenda vegana");
+		words.add("Farm of the godd will");
+		words.add("Armamento do amor");
+		words.add("Trator de paz");
+		words.add("Zigdust Stardust");
+		
+		System.out.println("---------Using Java 8------------");
+		words.sort(organizedByLenght); //Java8, arguments are shorter
+		System.out.println(words);
+		
+}
+
+
+public class SizeComparator implements Comparator<String> {
+
+	@Override
+	public int compare(String s1, String s2) {
+		if(s1.length() < s2.length())
+			return -1;
+		if(s1.length() > s2.length())
+			return 1;
+		return 0;
+	}
+	
+
+}
+
+//----------With lambdas
+
+public class StringOrdenation {
+
+	public static void main(String[] args) {
+		List<String> words = new ArrayList<String>();
+		Comparator organizedByLenght = new SizeComparator();
+		words.add("Fazenda vegana");
+		words.add("Farm of the godd will");
+		words.add("Armamento do amor");
+		words.add("Trator de paz");
+		words.add("Zigdust Stardust");
+		
+		System.out.println("---------Using Java 8 with lambdas------------");
+		words.sort((s1, s2) -> {
+		if(s1.length() < s2.length())
+			return -1;
+		if(s1.length() > s2.length())
+			return 1;
+		return 0;
+      });
+		System.out.println(words);
+
+      System.out.println("---------Using Java 8 with lambdas, even more short------------");
+		words.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+		System.out.println(words);
+		
+}
+```
+34. 
+
+
 
 
 **Control Instruction and other objects**
