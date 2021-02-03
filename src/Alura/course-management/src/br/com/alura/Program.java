@@ -3,18 +3,15 @@ package br.com.alura;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Set;
 
 public class Program {
 
 	private String name;
 	private String instructor;
 	private List<Class> classes = new ArrayList<Class>();
-	private Set<Student> student = new HashSet<>();
+	private List<Student> student = new ArrayList<Student>();
 	private Map<Integer, Student> studentEnrolled = new HashMap<>();
 
 	public Program(String name, String instructor) {
@@ -53,8 +50,8 @@ public class Program {
 		this.studentEnrolled.put(studentConfirmed.getId(), studentConfirmed);
 	}
 	
-	public Set<Student> getStudents() {
-		return Collections.unmodifiableSet(student);
+	public List<Student> getStudents() {
+		return Collections.unmodifiableList(this.student);
 	}
 
 	public boolean getStudenEnrolled(Student student) {

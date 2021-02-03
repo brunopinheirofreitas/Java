@@ -43,6 +43,9 @@ public class testProgram {
 //		for (Class class1 : classes) {
 //			System.out.println("Class: " + class1.toString());
 //		}
+		
+		System.out.println("-----------------Using java8-----------------");
+		
 
 	}
 

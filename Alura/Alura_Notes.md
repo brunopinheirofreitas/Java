@@ -56,6 +56,9 @@ The JVM communicate with the computer through machine language, so the program i
 38. Linkedlist is good if you have a list that changes it's elements a lot, by removing it, for instance, however itsn't good to return a specific element in a position or to add elements. Linked keeps order.
 39. Map is a class, it work like a data structure based in a key and a value. In this structure, if you repeat a key, its value is overrided.
 40. The "hash" term in hashSet and hashMap means that the group is organized by a special form o table that group similar elements, making the searching for an element much more faster than using normal Sit or List classes.
+41. Lambdas and method references are forms to shorten the quantity of code that you write. Lambdas is known by '->' and usefull when handling anonymous class with one method different from 'default' or 'abstract'. 
+42. Methods Reference are like lambdas, however using it you invoke a specific method from a class.
+43. After java 8, every collection has a Stream method. A Stream is a stream of objects, it's not a collection, hence the form to handle data is different.
 ---
 
 **Java Types and operators**
@@ -91,6 +94,8 @@ Primitives
 |  ^| Conditional OR EXCLUSIVE| 
 |  !| Conditional NOT|
 |Enum| It's a class. You can creat a enum by creating an object of the type ENUM, ex private enum Status {value1, value2, value3}; hence, Status become a type and you can create a variable of this type, ex: Status var1. Var1 by default has the values: value1, value2 or value3. Moreove, a ENUM should have a string value over a numeric value, it's easier to read the code.|
+|->| Lambdas|
+|::| Method References. Is equivalent to lambdas, but you invoke a specific method of a class, ex: System.out::println|
 
 ---
 
@@ -294,7 +299,7 @@ public class StringOrdenation {
 		
 }
 ```
-34. 
+34. In Java8 you have a class called Factory, it has usefull methods. Using methods references (::) you can shorten even more coding, because you can pass those methods references as arguments, invoking specific methods.
 
 
 
