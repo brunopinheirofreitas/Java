@@ -3,6 +3,7 @@ package br.com.alura;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class testeJava8 {
 
@@ -47,8 +48,14 @@ public class testeJava8 {
 			.filter(a -> a.getTempo() >= 100)
 			.map(Class::getTempo)
 			.forEach(System.out::println);
-			
 		
+		System.out.println("----------Using Java 8 Streams with some methods-----------");
+		Optional<Class> optionalClass = classesProgram.stream() //Use this when a null return might cause a problem in your code.
+			.filter(b -> b.getTempo() <100)
+			.findAny();
+		Class someClass = optionalClass.orElse(null);
+		System.out.println(someClass.getTitulo());
+		optionalClass.ifPresent(System.out::println);
 		
 		
 

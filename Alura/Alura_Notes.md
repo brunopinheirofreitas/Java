@@ -59,6 +59,7 @@ The JVM communicate with the computer through machine language, so the program i
 41. Lambdas and method references are forms to shorten the quantity of code that you write. Lambdas is known by '->' and usefull when handling anonymous class with one method different from 'default' or 'abstract'. 
 42. Methods Reference are like lambdas, however using it you invoke a specific method from a class.
 43. After java 8, every collection has a Stream method. A Stream is a stream of objects, it's not a collection, hence the form to handle data is different.
+44. The manjor classes to handle time and date are: java.time
 ---
 
 **Java Types and operators**
