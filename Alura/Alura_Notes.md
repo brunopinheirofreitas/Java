@@ -224,7 +224,7 @@ forEach(new Consumer<String>() {
       System.out.println(s);
    }
 });
-``` 
+```
 32. If possible, use lambdas to shorten your code:
 ```
 //The code above using lambdas:
@@ -241,33 +241,33 @@ forEach(s -> System.out.println(s));
 
 public class StringOrdenation {
 
-	public static void main(String[] args) {
-		List<String> words = new ArrayList<String>();
-		Comparator organizedByLenght = new SizeComparator();
-		words.add("Fazenda vegana");
-		words.add("Farm of the godd will");
-		words.add("Armamento do amor");
-		words.add("Trator de paz");
-		words.add("Zigdust Stardust");
-		
-		System.out.println("---------Using Java 8------------");
-		words.sort(organizedByLenght); //Java8, arguments are shorter
-		System.out.println(words);
-		
+    public static void main(String[] args) {
+        List<String> words = new ArrayList<String>();
+        Comparator organizedByLenght = new SizeComparator();
+        words.add("Fazenda vegana");
+        words.add("Farm of the godd will");
+        words.add("Armamento do amor");
+        words.add("Trator de paz");
+        words.add("Zigdust Stardust");
+        
+        System.out.println("---------Using Java 8------------");
+        words.sort(organizedByLenght); //Java8, arguments are shorter
+        System.out.println(words);
+        
 }
 
 
 public class SizeComparator implements Comparator<String> {
 
-	@Override
-	public int compare(String s1, String s2) {
-		if(s1.length() < s2.length())
-			return -1;
-		if(s1.length() > s2.length())
-			return 1;
-		return 0;
-	}
-	
+    @Override
+    public int compare(String s1, String s2) {
+        if(s1.length() < s2.length())
+            return -1;
+        if(s1.length() > s2.length())
+            return 1;
+        return 0;
+    }
+    
 
 }
 
@@ -275,32 +275,33 @@ public class SizeComparator implements Comparator<String> {
 
 public class StringOrdenation {
 
-	public static void main(String[] args) {
-		List<String> words = new ArrayList<String>();
-		Comparator organizedByLenght = new SizeComparator();
-		words.add("Fazenda vegana");
-		words.add("Farm of the godd will");
-		words.add("Armamento do amor");
-		words.add("Trator de paz");
-		words.add("Zigdust Stardust");
-		
-		System.out.println("---------Using Java 8 with lambdas------------");
-		words.sort((s1, s2) -> {
-		if(s1.length() < s2.length())
-			return -1;
-		if(s1.length() > s2.length())
-			return 1;
-		return 0;
+    public static void main(String[] args) {
+        List<String> words = new ArrayList<String>();
+        Comparator organizedByLenght = new SizeComparator();
+        words.add("Fazenda vegana");
+        words.add("Farm of the godd will");
+        words.add("Armamento do amor");
+        words.add("Trator de paz");
+        words.add("Zigdust Stardust");
+        
+        System.out.println("---------Using Java 8 with lambdas------------");
+        words.sort((s1, s2) -> {
+        if(s1.length() < s2.length())
+            return -1;
+        if(s1.length() > s2.length())
+            return 1;
+        return 0;
       });
-		System.out.println(words);
+        System.out.println(words);
 
       System.out.println("---------Using Java 8 with lambdas, even more short------------");
-		words.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
-		System.out.println(words);
-		
+        words.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+        System.out.println(words);
+        
 }
 ```
 34. In Java8 you have a class called Factory, it has usefull methods. Using methods references (::) you can shorten even more coding, because you can pass those methods references as arguments, invoking specific methods.
+35. import static is a good option for test classes, avoiding you to write Assert. many times.
 
 
 
@@ -372,7 +373,6 @@ array[line].length -> returns the lenght of the columns.
 *Unknown lenght of a argument in a method*
 - You can pass in an argument of a method an array with a unknown lenght. You only have to specify the type.
 
-```
 Method(type... name)
 ```
 
@@ -382,14 +382,13 @@ Method(type... name)
     - if, if-else, switch, else if
   - Repetition
     - for, while, do-while
-
+```
 *if*
 ```
 if (condition){
    statement;
 }
-```` 
-
+```
 *if-else*
 ```
 if (condition){
@@ -397,7 +396,7 @@ if (condition){
 } else {
    statement;
 }
-``` 
+```
 *else if*
 ```
 if (condition){
@@ -410,14 +409,12 @@ if (condition){
    statement;
 }
 ```
-
 *?:*
 ```
 (booleanExpression ? statement if true : statement if false)
 Example:
 println(StudentGrade>=60 ? "Passed" : "Failed");
 ```
-
 *while*
 ```
 while (condition) {
@@ -435,14 +432,12 @@ for (parameter : arrayName) {
    statement;
 }
 ```
-
 **Do---While**
 ```
 do {
    statement;
 } while (condition);
 ```
-
 **Case**
 ```
 switch(condition) {
@@ -456,7 +451,7 @@ switch(condition) {
       statement;
       break;
 }
-
+```
 ##Encapsulation
 
 Public - You can access this information at any moment.
@@ -698,19 +693,19 @@ Explicit means the you'll lose part of the information when casting. That's why 
 3. Enum are objects in a roll.
 
 ```
-	public enum Priority {
+    public enum Priority {
       
-	MIN(1), NORMAL(5), MAX(10);
-	
-	private int valor;
-	
-	Priority(int valor) {
-		this.valor = valor;
-	}
-	
-	public int getValor() {
-		return this.valor;
-	}
+    MIN(1), NORMAL(5), MAX(10);
+    
+    private int valor;
+    
+    Priority(int valor) {
+        this.valor = valor;
+    }
+    
+    public int getValor() {
+        return this.valor;
+    }
 
 }
 ```
@@ -723,17 +718,17 @@ Example of a mainclass invoking an enum class.
 ```
 public class testeEnum {
 
-	public static void main(String[] args) {
-		
-		Priority pMin = Priority.MIN;
-		Priority pNormal = Priority.NORMAL;
-		Priority pMax = Priority.MAX;
-		
-		System.out.println(pMin.name()); //should appear MIN
-		System.out.println(pMin.ordinal()); // should appear 0
-		System.out.println(pMin.getValor()); // should appear 1
+    public static void main(String[] args) {
+        
+        Priority pMin = Priority.MIN;
+        Priority pNormal = Priority.NORMAL;
+        Priority pMax = Priority.MAX;
+        
+        System.out.println(pMin.name()); //should appear MIN
+        System.out.println(pMin.ordinal()); // should appear 0
+        System.out.println(pMin.getValor()); // should appear 1
 
-	}
+    }
 
 }
 ```
@@ -796,9 +791,9 @@ Every exception launched shows the position in the stack where the error occour 
 
 ```
 Exception in thread "main" java.lang.ArithmeticException: / by zero
-	at Fluxo.metodo2(Fluxo.java:22) // top stack, line 22
-	at Fluxo.metodo1(Fluxo.java:12) // middle stack, line 12
-	at Fluxo.main(Fluxo.java:6) // bottom stack, line 6
+    at Fluxo.metodo2(Fluxo.java:22) // top stack, line 22
+    at Fluxo.metodo1(Fluxo.java:12) // middle stack, line 12
+    at Fluxo.main(Fluxo.java:6) // bottom stack, line 6
 ```
 
 **Try and Catch**
@@ -832,10 +827,10 @@ catch (exception_name | exception_name | exception_name variable) {
 
 ```
 try {
-			metodo1();		
-		} catch(ArithmeticException ex) {
-			ex.printStackTrace();
-		}		
+            metodo1();      
+        } catch(ArithmeticException ex) {
+            ex.printStackTrace();
+        }       
 ```
 **Throw**
 
@@ -843,14 +838,14 @@ You use 'throw' to create an exception in a code. As exceptions are classes, you
 
 ```
 ArithmeticException ex = new ArithmeticException("Deu errado");
-		throw ex; //could be throw new ArithmeticException();
+        throw ex; //could be throw new ArithmeticException();
 
 When executing:
     java.lang.ArithmeticException: Deu errado
-	at Fluxo.metodo2(Fluxo.java:29)
-	at Fluxo.metodo1(Fluxo.java:23)
-	at Fluxo.main(Fluxo.java:12)
-``` 
+    at Fluxo.metodo2(Fluxo.java:29)
+    at Fluxo.metodo1(Fluxo.java:23)
+    at Fluxo.main(Fluxo.java:12)
+```
 
 When executing this code, the compiler will stop at this part of the code. Throw is simmilar to a 'return' statement. Nothing above a throw will be executed. Mostly compilers/IDE will present an error in lines bellow a throw statement. 
 
@@ -871,11 +866,11 @@ Ini do metodo1
 Ini do metodo2
 Exception Deu mais ou menos errado
 MyException: Deu mais ou menos errado
-	at Fluxo.metodo2(Fluxo.java:29)
-	at Fluxo.metodo1(Fluxo.java:23)
-	at Fluxo.main(Fluxo.java:12)
+    at Fluxo.metodo2(Fluxo.java:29)
+    at Fluxo.metodo1(Fluxo.java:23)
+    at Fluxo.main(Fluxo.java:12)
 Fim do main
-``` 
+```
 
 However, if you change the inheritance of the class, you should consider this:
 - Some classes are not verified by compilers, which means, the throw statement in unchecked. Normally classes that extends RuntimeException are unchecked.
@@ -935,7 +930,7 @@ Every time you open a conection with something, you need to close it. Instead of
 After that you can proceed as bellow:
 
 ```
-		try (Conection conection = new Conection()) {
+        try (Conection conection = new Conection()) {
         }
 ```
 
@@ -977,6 +972,7 @@ By doing that you can use classes of the JAR file, JAR is kind of a .zip file, c
 You transform a generic reference in a specific reference. Ex:
 It's possible to use with objects as well.
 
+```
 //Explicit Cast
 Double number1 = 2.0;
 sysytem.out.println ( (int) number1);
@@ -998,15 +994,15 @@ To avoid printing the memory information on  the console you can override the me
 ```
 public class Conta {
 
-	protected double saldo;
-	private int agencia;
-	private int numero;
-	private Cliente titular;
-	private static int total = 0;
+    protected double saldo;
+    private int agencia;
+    private int numero;
+    private Cliente titular;
+    private static int total = 0;
 public String toString() {
-		return "Agencia: "+agencia + " " + "Numero: " + numero;
-	}
-``` 
+        return "Agencia: "+agencia + " " + "Numero: " + numero;
+    }
+```
 
 - the method compareTo compare objects in a more natural way, distincts from java.lang.compare interface.
 - Other way to compare is by using java.lang.comparable. It's an interface.
@@ -1043,6 +1039,29 @@ String login = props.getProperty("login"); //to read the property value
 String senha = props.getProperty("senha");
 String endereco = props.getProperty("endereco");
 ```
+
 ###java.nio.charset
 - Handle unicode and encoding.
+
+#jUnit
+1. jUnit is a library that helps you to handle automatized software test.
+2. In Eclipse: Right buttom > Build Path > Add Libraries > Junit
+3. A test class must have "methods" that deal with the tests and it should be:
+  1. Must have a name that express its responsability.
+  2. public void.
+  3. Without arguments.
+  4. @test notation above name.
+  5. Use Assert class from jUnit for test results.
+  6. You can use deltas to stablish a margin error.
+  7. Execute code as a jUnit test.
+4. You can segment a test in:
+  1. Cenario definiton
+  2. Action
+  3. Validation
+5. Always test every conditional, hence, the number of tests should always be the same number of conditionals.
+
+**Equivalent classes**
+It's a class similar to another class, might be of any type. When handling tests, it's important to see if one class can support every cenario.
+   
+
 
