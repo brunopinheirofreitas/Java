@@ -60,6 +60,10 @@ The JVM communicate with the computer through machine language, so the program i
 42. Methods Reference are like lambdas, however using it you invoke a specific method from a class.
 43. After java 8, every collection has a Stream method. A Stream is a stream of objects, it's not a collection, hence the form to handle data is different.
 44. The manjor classes to handle time and date are: java.time
+45. It's possible to return the a object of the class in a method within the class. Ex: return this, will return an object of the class.
+46. Test Data Builders are classes that construct the data that you must have to evaluate your class through test classes.
+47. Low dependecy is when you have classes and methods that can work independently, despeite the fact that your code will have a strong depedence for other classes, those other class has implemented methods and attributes that can work separetadly and any changes on those methods or attributes might not make any differece in your code.
+48. When handling tests, it's possible to wait for an exception by doing @Test(expected=RuntimeException.class).
 ---
 
 **Java Types and operators**
@@ -207,6 +211,7 @@ Presents the output under a specific format acording to % specification in the f
 27. hash make things faster. Link order this. Set store things without the need of order.
 28. ```default``` statement it's used when a method within an interface have a body. Ex: ```default void sort(...)```.
 29. It's a good idea to use an anonymous implementation inside a class, without to have to create another class just to use a few methods, for instance:
+30. Try to begin by the tests.
 ```
 Consumer<String> stringEater = new Consumer<String>() { //By doing this I can use the method **accept** without creating a class
    @Override
@@ -302,6 +307,9 @@ public class StringOrdenation {
 ```
 34. In Java8 you have a class called Factory, it has usefull methods. Using methods references (::) you can shorten even more coding, because you can pass those methods references as arguments, invoking specific methods.
 35. import static is a good option for test classes, avoiding you to write Assert. many times.
+36. Think small to think big. Maybe it'd a good idea to think first in methods and last in classes, since  you can use your IDE to create those methods in a class after.
+37. Try to use *@before* and *@after* in your test classes to help you see through it.
+38. It's not possible to test a class by referencing throws statements.
 
 
 
@@ -1059,6 +1067,7 @@ String endereco = props.getProperty("endereco");
   2. Action
   3. Validation
 5. Always test every conditional, hence, the number of tests should always be the same number of conditionals.
+6. *@before* helps you to create public methods to be used by your test class. Testing sometimes means you will repeat code, by doing that jUnit will use this method to instantiate your test objects before every test method.
 
 **Equivalent classes**
 It's a class similar to another class, might be of any type. When handling tests, it's important to see if one class can support every cenario.
