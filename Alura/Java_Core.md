@@ -64,6 +64,8 @@ The JVM communicate with the computer through machine language, so the program i
 46. Test Data Builders are classes that construct the data that you must have to evaluate your class through test classes.
 47. Low dependecy is when you have classes and methods that can work independently, despeite the fact that your code will have a strong depedence for other classes, those other class has implemented methods and attributes that can work separetadly and any changes on those methods or attributes might not make any differece in your code.
 48. When handling tests, it's possible to wait for an exception by doing @Test(expected=RuntimeException.class).
+49. ENUM is an object that receives a specific value predfined.
+50. @Deprecated means somethins is old/not to be used.
 ---
 
 **Java Types and operators**
@@ -98,7 +100,7 @@ Primitives
 |  I| Conditional OR that evaluate both conditions|
 |  ^| Conditional OR EXCLUSIVE| 
 |  !| Conditional NOT|
-|Enum| It's a class. You can creat a enum by creating an object of the type ENUM, ex private enum Status {value1, value2, value3}; hence, Status become a type and you can create a variable of this type, ex: Status var1. Var1 by default has the values: value1, value2 or value3. Moreove, a ENUM should have a string value over a numeric value, it's easier to read the code.|
+|Enum| It's a class. You can creat a enum by creating an object of the type ENUM, ex private enum Status {value1, value2, value3}; hence, Status become a type and you can create a variable of this type, ex: Status var1. Var1 by default has the values: value1, value2 or value3. Moreove, a ENUM should have a string value over a numeric value, it's easier to read the code. Or you can create in a separeted class, like a type.|
 |->| Lambdas|
 |::| Method References. Is equivalent to lambdas, but you invoke a specific method of a class, ex: System.out::println|
 
@@ -310,6 +312,9 @@ public class StringOrdenation {
 36. Think small to think big. Maybe it'd a good idea to think first in methods and last in classes, since  you can use your IDE to create those methods in a class after.
 37. Try to use *@before* and *@after* in your test classes to help you see through it.
 38. It's not possible to test a class by referencing throws statements.
+39. Arrays.asList: Create a list of objects automaticaly.
+40. ..ToOne: Will be always connected by a FK.
+41. TypedQuery<Type> name = EntityManager.createQuery(jpql, className): Specify what you are doing in your code, turns it easier to read.
 
 
 

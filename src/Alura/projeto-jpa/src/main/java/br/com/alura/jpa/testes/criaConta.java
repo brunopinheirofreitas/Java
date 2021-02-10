@@ -4,7 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.alura.jpa.modelo.Conta.Conta;
+import br.com.alura.jpa.modelo.Cliente;
+import br.com.alura.jpa.modelo.Conta;
 
 public class criaConta {
 	public static void main(String[] args) {
@@ -14,15 +15,14 @@ public class criaConta {
 		
 		
 		//Inclusão de conta
-//		Conta conta = new Conta(); 
-//		conta.setTitular("Jesus");
-//		conta.setNumero((long) 7777);
-//		conta.setAgencia((long) 0077);
-//		conta.setSaldo(77.00);
-//		
-//		em.getTransaction().begin();
-//		em.persist(conta);
-//		em.getTransaction().commit();
+		Conta conta = new Conta(); 
+		conta.setNumero((long) 23151515);
+		conta.setAgencia((long) 8545);
+		conta.setSaldo(150.00);
+		
+		em.getTransaction().begin();
+		em.persist(conta);
+		em.getTransaction().commit();
 //		
 		//Cria conta com saldo
 		
@@ -40,14 +40,16 @@ public class criaConta {
 		
 		//Alterando dados
 		
-		Conta contaDoCliente = em.find(Conta.class, 4L);
-		contaDoCliente.setSaldo(20.0);
-		contaDoCliente.setTitular("Maurico");
-		contaDoCliente.setAgencia((long) 4615);
-		contaDoCliente.setNumero((long) 8465792);
-		em.getTransaction().begin();
-		em.persist(contaDoCliente);
-		em.getTransaction().commit();
+//		Conta contaDoCliente = em.find(Conta.class, 4L);
+//		Cliente titular = new Cliente();
+//		titular.setNome("Rafael");
+//		contaDoCliente.setSaldo(20.0);
+//		contaDoCliente.setTitular(titular);
+//		contaDoCliente.setAgencia((long) 4615);
+//		contaDoCliente.setNumero((long) 8465792);
+//		em.getTransaction().begin();
+//		em.persist(contaDoCliente);
+//		em.getTransaction().commit();
 		
 		//Removing
 //		Conta contaDoCliente = em.find(Conta.class, 3L);

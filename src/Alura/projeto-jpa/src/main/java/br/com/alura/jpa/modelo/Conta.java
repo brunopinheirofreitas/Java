@@ -1,18 +1,22 @@
-package br.com.alura.jpa.modelo.Conta;
+package br.com.alura.jpa.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Conta {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@OneToOne
+	private Cliente titular;
+	
 	private Long agencia;
 	private Long numero;
-	private String titular;
 	private Double saldo;
 	
 	public Double getSaldo() {
@@ -35,7 +39,7 @@ public class Conta {
 		this.numero = numero;
 	}
 
-	public void setTitular(String titular) {
+	public void setTitular(Cliente titular) {
 		this.titular = titular;
 	}
 
@@ -43,7 +47,7 @@ public class Conta {
 
 	}
 	
-	public Conta(Long agencia, Long numero, String titular) {
+	public Conta(Long agencia, Long numero, Cliente titular) {
 		this.agencia = agencia;
 		this.numero = numero;
 		this.titular = titular;
@@ -61,7 +65,7 @@ public class Conta {
 		return numero;
 	}
 
-	public String getTitular() {
+	public Cliente getTitular() {
 		return titular;
 	}
 

@@ -37,10 +37,23 @@ Conta contaDoCliente = em.find(Conta.class, 1L); //To find a register in a DB.
 - em.close(): close de transaction. An object become "Detached"after a closing transaction, hence, any changes in it will not be persisted.
 - em1.merge(conta): Compares the object in the model with the object in the DB, persisting the differences in the model. Transforms a "detached" object in "managed".
 - JPA states:
-    + Transient: It's mapped in Java.
+    + Transient: It's mapped only in Java, doesn't exist in DB.
     + Managed: It's mapped in Java and in the DB through JPA. Only state when you can manipulate data.
     + Detached: It's detached from the DB, exists only in java.
     + Removed: It's removed from DB. `em.remove(object)`;
+
+**Notations**
+- @Entity: Notation to inform that this class is an entity.
+- @Id: Indicates a PK
+- @GeneratedValue(strategy = GenerationType.IDENTITY): PK auto-increment.
+- @Enumerated(EnumType.TYPE): Persist in DB a specific type of a variable.
+- @ManyToOne: Indicates a FK.
+- @JoinColumn(unique = true): Constraint.
+
+**Objects**
+- EntityManager, main object in JPA, allows you to manipulate DDL.
+    + EntityManagerFactory: Object that holds the persistence.xml file.
+    + createEntityManager();: Automaticaly create tables.
 
 
 ##Maven
@@ -112,6 +125,7 @@ to handle database connections and manipulation. Look in the DB page for this no
 </persistence>
 `
 Some explanation:
+-  <provider>: It's a class that handle everything.
 - javax.persistence.jdbc.driver: Which driver you will use.
 - javax.persistence.jdbc.url: where the DB is.
 - javax.persistence.jdbc.user: username to access the DB.
@@ -122,15 +136,8 @@ Some explanation:
 - hibernate.hbm2ddl.auto: Automatic create DDL from classes.
 - <class></class>: Project's FQN, it's important to look at this because your code must be in the same FQN.
 
-**Notations**
-- @Entity: Notation to inform that this class is an entity.
-- @Id: Indicates a PK
-- @GeneratedValue(strategy = GenerationType.IDENTITY): PK auto-increment.
-
-**Objects**
-- EntityManager, main object in JPA, allows you to manipulate DDL.
-    + EntityManagerFactory: Object that holds the persistence.xml file.
-    + createEntityManager();: Automaticaly create tables.
+##JPQL
+It's a class that allows you to handle SQL queries without the need to know specifics of DB structure, you only need to know classes and attributes.
 
 
 
