@@ -49,6 +49,8 @@ Conta contaDoCliente = em.find(Conta.class, 1L); //To find a register in a DB.
 - @Enumerated(EnumType.TYPE): Persist in DB a specific type of a variable.
 - @ManyToOne: Indicates a FK.
 - @JoinColumn(unique = true): Constraint.
+- @OneToMany(mappedBy="attribute"): Bi-directional key, two tables connected through a FK, you don't need to have a third table. When you have a one-many relation, a FK stablish the relation.
+- mappedBy: Forces the "attribute" to create a FK. Strong side, alters the DB.
 
 **Objects**
 - EntityManager, main object in JPA, allows you to manipulate DDL.
@@ -138,6 +140,8 @@ Some explanation:
 
 ##JPQL
 It's a class that allows you to handle SQL queries without the need to know specifics of DB structure, you only need to know classes and attributes.
+- join fetch: inner join. It'll reduce the amount of queries executed.
+- join left/right: left join or right join in SQL.
 
 
 

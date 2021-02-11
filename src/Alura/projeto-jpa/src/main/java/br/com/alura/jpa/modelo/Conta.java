@@ -1,9 +1,13 @@
 package br.com.alura.jpa.modelo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -18,6 +22,9 @@ public class Conta {
 	private Long agencia;
 	private Long numero;
 	private Double saldo;
+	
+	@OneToMany(mappedBy="conta", fetch = FetchType.EAGER)
+	private List<Movimentacao> movimentacoes;
 	
 	public Double getSaldo() {
 		return saldo;
@@ -68,5 +75,15 @@ public class Conta {
 	public Cliente getTitular() {
 		return titular;
 	}
+
+	public List<Movimentacao> getMovimentacao() {
+		return movimentacoes;
+	}
+	
+	@Override
+	public String toString() {
+		return ("Conta: " + this.numero + " Agencia: " + this.agencia);
+	}
+
 
 }

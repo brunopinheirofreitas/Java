@@ -66,6 +66,8 @@ The JVM communicate with the computer through machine language, so the program i
 48. When handling tests, it's possible to wait for an exception by doing @Test(expected=RuntimeException.class).
 49. ENUM is an object that receives a specific value predfined.
 50. @Deprecated means somethins is old/not to be used.
+51. ..ToMany: Whem using this notation in a code, API JPA uses Lazyness to execute queries that have relation ToMany. This makes the performance better due to the fact that those queries are executed only when needed.
+  - @OneToMany(mappedBy="attribute", fetch = FetchType.EAGER): Opposite of lazyness, API JPA will execute queries with ToMany relations since the begining.
 ---
 
 **Java Types and operators**
@@ -314,7 +316,10 @@ public class StringOrdenation {
 38. It's not possible to test a class by referencing throws statements.
 39. Arrays.asList: Create a list of objects automaticaly.
 40. ..ToOne: Will be always connected by a FK.
-41. TypedQuery<Type> name = EntityManager.createQuery(jpql, className): Specify what you are doing in your code, turns it easier to read.
+41. TypedQuery<Type> name = EntityManager.createQuery(variableName, className): Specify what you are doing in your code, turns it easier to read.
+  - variableName: is a String that stores the SQL query.
+  - variableName.getResultList(): execute query
+42. 
 
 
 
