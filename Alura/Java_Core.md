@@ -68,6 +68,7 @@ The JVM communicate with the computer through machine language, so the program i
 50. @Deprecated means somethins is old/not to be used.
 51. ..ToMany: Whem using this notation in a code, API JPA uses Lazyness to execute queries that have relation ToMany. This makes the performance better due to the fact that those queries are executed only when needed.
   - @OneToMany(mappedBy="attribute", fetch = FetchType.EAGER): Opposite of lazyness, API JPA will execute queries with ToMany relations since the begining.
+52. DAO is a project pattern, the idea is to create a layer between DATA and CODE, DAO menas Data Access Object.
 ---
 
 **Java Types and operators**
@@ -216,6 +217,8 @@ Presents the output under a specific format acording to % specification in the f
 28. ```default``` statement it's used when a method within an interface have a body. Ex: ```default void sort(...)```.
 29. It's a good idea to use an anonymous implementation inside a class, without to have to create another class just to use a few methods, for instance:
 30. Try to begin by the tests.
+31. Pay attention to class responsabilities. For instance, Dao class should not instantiate Entity Manager. Always pass the responsability of dependencies and other things to classes that will invoke your methods. 
+32. The model should have the @NamedQueries notation, because JPA is OO and you will use classnames and attributes.
 ```
 Consumer<String> stringEater = new Consumer<String>() { //By doing this I can use the method **accept** without creating a class
    @Override
@@ -319,10 +322,9 @@ public class StringOrdenation {
 41. TypedQuery<Type> name = EntityManager.createQuery(variableName, className): Specify what you are doing in your code, turns it easier to read.
   - variableName: is a String that stores the SQL query.
   - variableName.getResultList(): execute query
-42. 
-
-
-
+42. When using JPA remember: You are dealing with OO, hence use the class names, not the table names. JPA is caseSensitivy.
+43. AVG always with double.
+44. Use criteria for dynamic queries.
 
 **Control Instruction and other objects**
 

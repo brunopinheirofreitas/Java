@@ -51,6 +51,7 @@ Conta contaDoCliente = em.find(Conta.class, 1L); //To find a register in a DB.
 - @JoinColumn(unique = true): Constraint.
 - @OneToMany(mappedBy="attribute"): Bi-directional key, two tables connected through a FK, you don't need to have a third table. When you have a one-many relation, a FK stablish the relation.
 - mappedBy: Forces the "attribute" to create a FK. Strong side, alters the DB.
+- @NamedQuery(name="", query=""): Create a query and name it using this notation. Just use the name of the query in the other parts of the code. To execute it: createNamedQuery.
 
 **Objects**
 - EntityManager, main object in JPA, allows you to manipulate DDL.
@@ -142,6 +143,13 @@ Some explanation:
 It's a class that allows you to handle SQL queries without the need to know specifics of DB structure, you only need to know classes and attributes.
 - join fetch: inner join. It'll reduce the amount of queries executed.
 - join left/right: left join or right join in SQL.
+- You can instantiate an object when creating a string that store a SQL, ex: 'select new FQN of the class'. Use a constructor to store this information.
+
+##Criteria
+CriteriaBuilder (Build the criteria) > CriteriaQuery (build the query) > Root (access attributes) > Operation.
+- Criteria is utilized for dynamic queries.
+- Criteria allows you to access attributes in a class mapped in a DB.
+
 
 
 
