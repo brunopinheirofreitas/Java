@@ -150,6 +150,71 @@ CriteriaBuilder (Build the criteria) > CriteriaQuery (build the query) > Root (a
 - Criteria is utilized for dynamic queries.
 - Criteria allows you to access attributes in a class mapped in a DB.
 
+##WebContainer x EJB Container
+- Web Container: It's simple and http oriented.
+- EJB Container: It's design for web application, contains API's used by web apps.
+    + GlassFish, WildFly.
+- Jakarta and Java is the same thing.
+
+##Java EE Architecture
+- User > HTTP requisition to access web app.
+- Web App:
+    + HTTP layer: Handle requests transforming it in objects.
+    + Business layer: handle business rules, the proposition of the software.
+    + DB layer:
+        * Transactions: Begin, commit, close, talking to DB.
+        * Persistance: Inserting data into the DB.
+        * Connection Pool: Connection between webApp and DB.
+    + Queues: Handling paralelism.
+- Web Server provide:
+    + HTTP, transactions, peristance, conection pools and queues. 
+
+##Wildfly
+- It's a webServer with EJB Container and Web Container.
+- On standalone: max-pool-size="20" instead of derive-size="from-worker-pools" stablish a static number of pools in your server. That means if the 20 pools are being used, the next requisition will wait until a pool is available.
+    + OutOfMemory workOut.
+- Inserting server user:
+`
+1º - Acesse a pasta wildfly-20.0.1.Final\bin.
+
+2º - Execute, via CMD, o add-user.bat
+
+3º - Escolha o tipo Management User (Usuário de Administração)
+
+4º - Escolha o username de sua preferência
+
+5º - Defina a senha e a confirme
+
+6º - Não é necessário definir grupos, então só é necessário apertar enter
+
+7º - Insira yes para incluir o usuário ao ManagementRealm
+
+8º - Insira yes para permitir que o usuário possa acessar outros AS Process
+
+9º - Tecle qualquer tecla para continuar
+`
+- Inserting modules:
+    + Creating modules: module add --name=com.mysql --resources="{Local em que o .jar está salvo}" --dependencies=javax.api,javax.transaction.api
+    + Installing modules: /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-xa-datasource-class-name=com.mysql.cj.jdbc.MysqlXADataSource)
+        * {"outcome" => "success"}
+
+##EJB - Enterprise Java Beans
+- Are Java Classes that handle business rules.
+- You can invoke services from webserver to work with infrastructure, for instance, HTTP, DB and Queues become services provided by the webserver.
+    + It's called injection.
+
+**Notations**
+- @Stateless: It's an EJB, which means, It's a layer between the server and the code. Statless means you do not have to store in memory the original objects of this class.
+- @Inject: Injections of depedencies in your code, means that you are using resourcers from the server. Creates an instance of EJB.
+- @WebServlet("resource"): which resource you are accessing, for instance: "emails"
+- @PersistenceContext: Automatically creates an instance of the object needed to handle DB integration, you do not have to create by hand.
+
+##Servlet
+- Servelts are layers between the browser and the server.
+- Inside a servlet you instantiate services to handle business requests to delivery information.
+- Major commands:
+    + doGet
+    + doPost
 
 
 
