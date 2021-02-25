@@ -206,8 +206,63 @@ CriteriaBuilder (Build the criteria) > CriteriaQuery (build the query) > Root (a
 **Notations**
 - @Stateless: It's an EJB, which means, It's a layer between the server and the code. Statless means you do not have to store in memory the original objects of this class.
 - @Inject: Injections of depedencies in your code, means that you are using resourcers from the server. Creates an instance of EJB.
-- @WebServlet("resource"): which resource you are accessing, for instance: "emails"
+- @Schedule(second = "15"): You can schedule a method to works by itself.
 - @PersistenceContext: Automatically creates an instance of the object needed to handle DB integration, you do not have to create by hand.
+    + Automatically do:
+```
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(JNDI from persistence.xml); 
+        // Create an objcet from EntityManager using the JNDI specified in persistence.xml.
+        // The JNDI in persistence.xml is configured in the webserver datasource, maybe there's the need to use some .jar to create a connection with a DB, all configuration can be setted up in the webserver console or through command line.
+        this.entityManager = entityManagerFactory.createEntityManager();
+        //Create an instance of the object.
+
+        and
+
+        entityManager.getTransaction().begin();
+        List<ClassName> resultado = entityManager.createQuery("SQL query", ClassName.class).getResultList();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        //To execute queries in a table 
+```
+
+Ex:
+```
+@Stateless
+public class AgendamentoEmailDAO {
+    
+    @PersistenceContext
+    private EntityManager entityManager;
+    
+    //Due to @PersistenceContext those lines are not necessary.
+//  
+//  private EntityManager entityManager;
+//  
+//  public AgendamentoEmailDAO () {
+//      EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("AgendamentoEmailDS");
+//      this.entityManager = entityManagerFactory.createEntityManager();
+//     }        
+//  
+    public List<AgendamentoEmail> listar () {
+        
+        return entityManager.createQuery("SELECT ae FROM AgendamentoEmail ae", AgendamentoEmail.class).getResultList();     
+        
+        //@PersistenceContext already creates an instance of this object
+//      entityManager.getTransaction().begin();
+//      List<AgendamentoEmail> resultado = entityManager.createQuery("SELECT ae FROM AgendamentoEmail ae", AgendamentoEmail.class).getResultList();
+//      entityManager.getTransaction().commit();
+//      entityManager.close();
+//      
+//      return resultado;
+        
+    }
+    
+    public void inserir (AgendamentoEmail agendamentoEmail) {
+        entityManager.persist(agendamentoEmail);
+    }
+    
+    
+}
+```
 
 ##Servlet
 - Servelts are layers between the browser and the server.
@@ -215,10 +270,52 @@ CriteriaBuilder (Build the criteria) > CriteriaQuery (build the query) > Root (a
 - Major commands:
     + doGet
     + doPost
+- Servlets can be replaced by javax classes. By doing it, your code is cleaner and easier to read. However, if you have javax and servlets in the same project, servlets are prioritary.
 
+**Notations**
+- @WebServlet("resource"): which resource you are accessing, for instance: "emails"
 
+##Javax
+Study this class deeply. Handle all requisitions from webserver and it's better than servlets. (HTTP, etc)
 
+**Notations**
+- @GET: Handle get's request.
+- @Produces(value = MediaType.APPLICATION_JSON): produces json.
+- @POST: handle post's request.
+- @Consumes(value = MediaType.APPLICATION_JSON): expects json.
+- @PUT: handle put's request.
 
+##JMS
+To create a queue in a webserver like wildfly do:
+- access the cmd interface.
+- jms-queue add --queue-address=EmailQueue --entries=java:/jms/queue/EmailQueue
+
+Producer:
+```
+    @Inject
+    @JMSConnectionFactory("java:jboss/defaultJMSConnectionFactory") //default
+    private JMSContext context; //Creates a producer
+    
+    @Resource(mappedName = "JNDIqueue")
+    private Queue queue; //queue class
+
+//    To send something to a queue
+    context.createProducer().send(QueueObject, class);
+```
+
+Consumer:
+```
+MessageDriven(activationConfig= {
+        @ActivationConfigProperty(propertyName = "destinationLookup", 
+                propertyValue = "JNDIqueue"),
+        @ActivationConfigProperty(propertyName = "destinationType", 
+        propertyValue = "javax.jms.Queue")
+})
+Class implements MessageListener {
+
+//specs    
+}
+```
 
 
 

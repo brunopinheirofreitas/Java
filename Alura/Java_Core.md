@@ -69,6 +69,7 @@ The JVM communicate with the computer through machine language, so the program i
 51. ..ToMany: Whem using this notation in a code, API JPA uses Lazyness to execute queries that have relation ToMany. This makes the performance better due to the fact that those queries are executed only when needed.
   - @OneToMany(mappedBy="attribute", fetch = FetchType.EAGER): Opposite of lazyness, API JPA will execute queries with ToMany relations since the begining.
 52. DAO is a project pattern, the idea is to create a layer between DATA and CODE, DAO menas Data Access Object.
+53. ```private static final Logger LOGGER = Logger.getLogger(ClassName.class.getName());``` to enable custom logs from a class.
 ---
 
 **Java Types and operators**
@@ -1084,5 +1085,119 @@ String endereco = props.getProperty("endereco");
 **Equivalent classes**
 It's a class similar to another class, might be of any type. When handling tests, it's important to see if one class can support every cenario.
    
+#Java Beans
+Simply put, an Enterprise Java Bean is a Java class with one or more annotations from the EJB spec which grant 
+the class special powers when running inside of an EJB container. 
 
+**Types**
 
+- Session Beans
+A session bean encapsulates business logic that can be invoked programmatically by a client. 
+The invocation can be done locally by another class in the same JVM or remotely over the network from another JVM.
+The bean performs the task for the client, abstracting its complexity similar to a web service, for example.
+They assume the following states:
+1. Stateless
+  - Stateless beans don’t have any state.
+  - Instance lifecycle is managed by the container
+  - They’re also destroyed when the client terminates.
+  - They are shared by multiple clients
+  - They’re fast and easily managed by the container.
+  - Developers are responsible to ensure that they are thread safe.
+2. Stateful
+  - Stateful beans are unique to each client, they represent a client’s state.
+  - This state is often called the conversational state.
+  - Instance lifecycle is managed by the container
+  - They’re also destroyed when the client terminates.
+3. Singelton
+  - A Singleton session bean is instantiated once per application and exists for the lifecycle of the application.
+  - Designed for circumstances in which state must be shared across all clients, avoiding different instances using the same object.
+  - Developers must ensure that singletons thread safe.
+  - A Singleton bypass:
+```
+private static AgendamentoEmailJob instance;
+private AgendamentoEmailJob() {};
+  
+  public synchronized static AgendamentoEmailJob getInstance () {
+    if(instance==null) {
+      instance = new AgendamentoEmailJob();
+    } return instance;
+  }
+```
+
+- Message Driven Beans
+Enterprise bean that allows you to process messages asynchronously.
+This type of bean normally acts as a JMS message listener.
+They are not invoked by a client. instead, they are event-driven.
+
+Ex:
+
+```
+@Stateless
+public class AgendamentoEmailServico {
+  //Class spec
+}
+```
+
+#Servlets
+Servlets are the Java programs that runs on the Java-enabled web server or application server. 
+They are used to:
+  - Handle the request obtained from the web server, 
+  - Process the request, 
+  - Produce the response, 
+  - Send response back to the web server.
+
+**Properties**
+- Servlets work on the server-side.
+- Servlets are capable of handling complex requests obtained from web server.
+
+Ex:
+```
+@WebServlet("emails")
+public class AgendamentoEmailServlet extends HttpServlet{
+//Class specification
+}
+```
+
+#DAO
+The Data Access Object (DAO) pattern is a structural pattern that allows us to isolate the application/business layer 
+from the persistence layer (usually a relational database, but it could be any other persistence mechanism) using an abstract API.
+
+Ex:
+
+```
+@Stateless
+public class AgendamentoEmailDAO {
+  
+  @PersistenceContext
+  private EntityManager entityManager;
+}
+```
+
+#Packages
+- It's an abstraction to store classes that hold something in common.
+- Controlles classes and Resources classes are the same thing, choose one.
+
+#Transactions
+- Let webserver or TransactionManagementType.CONTAINER handle transactions. Is easier.
+Transactions are a pile of operations, executed in a pre-detemined order.
+In java you can handle transactions by using JTA, hence, you can control it.
+If a transaction fail, every object inside of it fail as well. For instance, if a database persistence fail for 1 row, it will automatically fail for everyone.
+In this case, you can you can manipulate some methods to work without being inside a transaction.
+```
+@TransactionManagement(TransactionManagementType.CONTAINER) //for class
+@TransactionAttribute(TransactionAttributeType.REQUIRED) //for methods
+@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED) //When some method do not allow transactions.
+@TransactionManagement(TransactionManagementType.BEAN) //If you want to control transactions
+//if you want to control transactions
+Class{
+@Inject
+private userTransaction userTrans;
+
+Method {
+  //Inside a trycatch
+  userTransaction.begin();
+  action;
+  userTransaction.commit();
+}
+}
+```
