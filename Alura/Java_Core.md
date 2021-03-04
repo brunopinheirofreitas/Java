@@ -1201,3 +1201,12 @@ Method {
 }
 }
 ```
+
+#Architecture WEB
+- 3-layers
+  + Controler: Handles HTTP requests e invoke the front-end.
+  + Vision: Handles .xhtml pages and requests from model.
+  + Model: handles java code and data.
+    * This works through sesionBeans.
+    * Data is handle by JPA.
+
