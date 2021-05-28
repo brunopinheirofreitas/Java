@@ -15,7 +15,7 @@ JPA is ORM (Object/Relational Mapping).
 - Basically, you will need to write this:
 
 `
-EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
+EntityManagerFactory emf = Persistence.createEntityManagerFactory("DBNAME");
 EntityManager em = emf.createEntityManager();
 `
 
@@ -52,6 +52,7 @@ Conta contaDoCliente = em.find(Conta.class, 1L); //To find a register in a DB.
 - @OneToMany(mappedBy="attribute"): Bi-directional key, two tables connected through a FK, you don't need to have a third table. When you have a one-many relation, a FK stablish the relation.
 - mappedBy: Forces the "attribute" to create a FK. Strong side, alters the DB.
 - @NamedQuery(name="", query=""): Create a query and name it using this notation. Just use the name of the query in the other parts of the code. To execute it: createNamedQuery.
+- @Temporal(TemporalType.DATE): To handle dates.
 
 **Objects**
 - EntityManager, main object in JPA, allows you to manipulate DDL.
@@ -263,6 +264,12 @@ public class AgendamentoEmailDAO {
     
 }
 ```
+@RequestedScope
+- Kind of stateful object. Every request from the browser creates a new bean. You cannot share variables between different beans.
+- Default
+
+@ViewScoped
+- Kind of stateless object. A request from the browser creates a bean. This bean is persistent.
 
 ##Servlet
 - Servelts are layers between the browser and the server.

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?> //default
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> //default
+<html xmlns="http://www.w3.org/1999/xhtml" //libs used to create html tags
+    xmlns:h="http://java.sun.com/jsf/html" //HTML starts here
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>  //tag that defines the body of the html
+    <h1>Novo Livro</h1> //header
+    <h:form> //component form. 
+        <h:messages/> //to print erros on browsers
+        <fieldset> //component fieldset
+            <legend>Dados do Livro</legend> //legend of a component
+            <h:panelGrid columns="2"> //panelGrid component
+                <h:outputLabel value="Titulo:" for="titulo" /> // label outside panelGrid component.
+                                <h:inputText id="titulo" value="#{livroBean.livro.titulo}" required="true" requiredMessage="Titulo is mandatory" //conponent to inser text, required true means the field is mandatory.
+                     validatorMessage="Titulo lenght max is 40 char"> 
+                    <f:validateLength maximum="40"/> //maximum lenght of input text component value.
+                </h:inputText>
+                <h:outputLabel value="ISBN:" for="isbn" />
+                <h:inputText id="isbn" value="#{livroBean.livro.isbn}" />
+                <h:outputLabel value="Preço:" for="preco" />
+                <h:inputText id="preco" value="#{livroBean.livro.preco}" />
+                <h:outputLabel value="Data de Lançamento:" for="dataLancamento" />
+                <h:inputText id="dataLancamento" value="#{livroBean.livro.dataLancamento.time}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/> //instruction to set a pattern for a input text.
+                </h:inputText>
+            </h:panelGrid>
+        </fieldset>
+        <fieldset>
+            <legend>Dados do Autor</legend>
+            <h:outputLabel value="Selecione Autor: " for="autor" />
+            <h:selectOneMenu value="#{livroBean.autorID}">
+                <f:selectItems value="#{livroBean.autores}" var="autor"
+                    itemLabel="#{autor.nome}" itemValue="#{autor.id}" />
+            </h:selectOneMenu>
+            <h:commandButton value="Gravar Autor" //buttom component
+                action="#{livroBean.gravarAutor}" />
+            <h:dataTable value="#{livroBean.autoresDoLivro}" var="autor"> //datatable component
+                <h:column>
+                    <h:outputText value="#{autor.nome}" />
+                </h:column>
+            </h:dataTable>
+        </fieldset>
+        <h:commandButton value="Gravar" action="#{livroBean.gravar}" />
+    </h:form>
+</h:body>
+
+</html>
+
+
+------------------

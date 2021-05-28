@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean
+//@ManagedBean
 public class LivroBean {
 
 	private Livro livro = new Livro();
