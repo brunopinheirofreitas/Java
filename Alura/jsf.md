@@ -83,7 +83,26 @@ In eclipse use Dynamic Web Project.
 ##JSF Components
  - `FacesContext.getCurrentInstance().addMessage("autor", new FacesMessage("Livro deve ter pelo menos um Autor."));`
      + To create a message in a page for a specific component.
-- `throw new ValidatorException(new FacesMessage("ISBN must begin with number 1"));`
-    + To validate a field in JSF, throwing an exception for a specfic condition.
+- `public void comecaComDigitoUm(FacesContext fc, UIComponent component, Object value) throws ValidatorException {
+        String valor = value.toString();
+        if(!valor.startsWith("1")) {
+            throw new ValidatorException(new FacesMessage("ISBN must begin with number 1"));
+        }
+    }
+`    + A method to validate a field in JSF, throwing an exception for a specfic condition.
+    + FacesContext fc: information of the processed view
+    + UIComponent component: view component being validate
+    + Object value: value of the object passed by the user
+
+##AJAX
+- Framework to handle individual components request of a webpage.
+- In JSF: xmlns:f="http://java.sun.com/jsf/core"
+- AJAX is javascript and to work you must create a tag <h:head /> in the begining of the html.
+- Syntaxe:
+    + <f:ajax>
+        * event: blue, focus, keyup (wait an action to do something) 
+        * execute: to execute part of a code, ignoring the rest of the html. Use an ID to bond an element to execute or use @form to send all elements in a form. Other possibilities are: @all, @this, @none.
+            - AJAX try to find components inside the form where it is used. To search for components outside the form, use the absolute path of a component: :component_id.
+        * render: to force part of the HTML to render, even though the ajax command is in another part of the code.
 
 
